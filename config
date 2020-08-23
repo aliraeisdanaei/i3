@@ -181,3 +181,13 @@ bar {
 }
 
 exec feh --bg-centre ~/.wallpaper.jpg
+
+set $br         #000000
+set $bg         #272727
+set $tx         #c1c1c1
+set $id         #00ff00
+set $ubg        #000000
+
+#fuction                border  background      text color      inidicator
+client.focused          $br     $bg             $tx             $id
+client.unfocused        $br     $bg             $tx             $id
