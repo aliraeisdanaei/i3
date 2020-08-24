@@ -183,16 +183,29 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        position top
 }
 
 #draws a background
-exec feh --bg-centre ~/.wallpaper.jpg
+exec feh --bg-fill ~/.wallpaper.jpg
+
+#open vscode
+bindsym $alt+v exec code
 
 #open chrome 
-bindsym $mod+c exec google-chrome
+bindsym $alt+c exec google-chrome
 
 #adding clipboard automatically
 exec --no-startup-id clipit
+
+#key binding to open config file in vs code
+bindsym $mod+i exec code ~/.config/i3/config
+
+#reboot the machine & shutdown the machine
+bindsym $alt+shift+r exec reboot
+bindsym $alt+shift+s exec shutdown now
+
+
 
 
 
