@@ -211,12 +211,7 @@ bindsym $mod+r mode "resize"
 ## STATUS BAR                            ##
 ###########################################
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-        position top
-}
+exec_always --nostartup-id ~/.config/polybar/launch.sh &
 
 
 ###########################################
@@ -234,7 +229,8 @@ exec --no-startup-id clipit
 ## BINDINGS FOR PRORGAMS                 ##
 ###########################################
 
-set $terminal i3-sensible-terminal
+set $terminal konsole
+set $fileManager krusader
 
 # start a terminal
 bindsym $mod+Return exec $terminal
@@ -254,11 +250,10 @@ bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/2/h/19khb87pacp
 
 #open config file in vs code
 bindsym $alt+i exec code ~/.config/i3/config
+bindsym $mod+i exec code ~/.config/i3/config
 
-#open a terminal to config folder
-bindsym $alt+shift+i exec $terminal; exec cd ~/.config/i3
-
-
+#open file manager
+bindsym $alt+f exec $fileManager
 
 
 ###########################################
