@@ -123,7 +123,17 @@ bindsym $mod+a focus parent
 ###########################################
 
 #always start on stacking layout as default
-for_window [workspace=$ws1 workspace=$ws2 workspace=$ws3 workspace=$ws4 workspace=$ws5 workspace=$ws6 workspace=$ws7 workspace=$ws8 workspace=$ws9 workspace=$ws10] layout stacking
+for_window [workspace=$ws1] layout stacking
+for_window [workspace=$ws2] layout stacking
+for_window [workspace=$ws3] layout stacking
+for_window [workspace=$ws4] layout stacking
+for_window [workspace=$ws5] layout stacking
+for_window [workspace=$ws6] layout stacking
+for_window [workspace=$ws7] layout stacking
+for_window [workspace=$ws8] layout stacking
+for_window [workspace=$ws9] layout stacking
+for_window [workspace=$ws10] layout stacking
+
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -225,13 +235,18 @@ bindsym $mod+r mode "resize"
 ###########################################
 
 #link the config file to the defult location laucnh.sh will read from
-set $theme tinyc
-exec ln -f -t ~/.config/polybar ~/.config/polybar/polybar-themes/$theme/*
+#set $theme tinyc
+#exec ln -f -t ~/.config/polybar ~/.config/polybar/polybar-themes/$theme/*
 
 
 #exec_always --no-startup-id ~/.config/polybar/myBars/launch.sh
-exec_always --no-startup-id ~/.config/polybar/polybar-themes/$theme/launch.sh
+#exec_always --no-startup-id ~/.config/polybar/polybar-themes/$theme/launch.sh
 
+
+bar{
+        status_command i3status
+        position top
+}
 
 
 ###########################################
@@ -247,6 +262,26 @@ exec --no-startup-id clipit
 #enable touchpad tap to click using xinput
 #the device id for touchpad is 10 and the tapping (306) is enabled (1)
 exec --no-startup-id xinput set-prop 10 306 1
+
+#enable automatic back and forth between workspaces
+workspace_auto_back_and_forth yes
+
+
+###########################################
+## PERSIAN KEYBOARD                      ##
+###########################################
+
+#Persian mode
+mode "persian" {
+        bindsym a exec echo a
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+p mode "persian"
 
 
 ###########################################
@@ -275,9 +310,9 @@ bindsym $alt+g exec ~/genymotion/genymotion
 #open all emails
 bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/2/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/1/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/0/h/19khb87pacpbu/?zy=g&f=1#inbox
 
-#open config file in vs code
-bindsym $alt+i exec code ~/.config/i3/config
-bindsym $mod+i exec code ~/.config/i3/config
+#open config file in vs code and open a terminal to its directory
+bindsym $alt+i exec code ~/.config/i3/config; exec $terminal --workdir ~/.config/i3
+bindsym $mod+i exec code ~/.config/i3/config; exec $terminal --workdir ~/.config/i3
 
 #open file manager
 bindsym $alt+f exec $fileManager
@@ -289,6 +324,8 @@ bindsym $alt+f exec $fileManager
 
 bindsym $alt+$mod+r exec reboot
 bindsym $alt+$mod+s exec shutdown now
+
+
 
 
 
