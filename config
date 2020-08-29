@@ -51,6 +51,37 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+#alternative key binding for raising and lowering volume
+bindsym $alt+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym $alt+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+
+###########################################
+## SCREEN BRIGHTNESS                     ##
+###########################################
+
+#the brightness is set on startup to the brightness it was previously
+exec --no-startup-id ~/.config/i3/brightnessControl.sh
+
+#to put asleep the entire screen 
+bindsym $mod+$alt+z exec ~/.config/i3/brightnessControl.sh set 0
+
+#to wake up the screen to full capacity 
+bindsym $mod+$alt+f exec ~/.config/i3/brightnessControl.sh full
+
+#to set screen brightness to 100
+bindsym $mod+$alt+1 exec ~/.config/i3/brightnessControl.sh set 100
+
+#to set screen to lowest capacity
+bindsym $mod+$alt+l exec ~/.config/i3/brightnessControl.sh low
+
+bindsym XF86MonBrightnessUp exec ~/.config/i3/brightnessControl.sh +
+bindsym XF86MonBrightnessDown exec ~/.config/i3/brightnessControl.sh -
+
+#alternative key binding for raising and lowering brightness
+bindsym $alt+Right exec ~/.config/i3/brightnessControl.sh +
+bindsym $alt+Left exec ~/.config/i3/brightnessControl.sh -
+
+
 ###########################################
 ## WINDOW KILL & DRAG                    ##
 ###########################################

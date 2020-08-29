@@ -2,47 +2,85 @@
 
 #Program uses xrandr to find the connected monitor
 #increases or decrease brightness by set amount
+#stores the brightness in the current directory as .brightness
+#with no arguments it sets the brightness to that value
 
 
-#valid arguments: + -
-#exit code 1: no argument
-#exit code 2: invalid argument
 
 
 #setting the connected monitor as a variable
 monitor=`xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1` 
+# echo $monitor
 
-#setting an enviroment variable for the brightness of the monitor (1 always when booted)
-export BRIGHTNESS=100
+#setting the current brightness
+brightness=`cat ./.brightness` || (echo 100 > ./.brightness && brightness=100)
+
+# echo $brightness
+
+MAX=150
+MIN=60
+
+#function sets the brightness to the variable brightness
+set_brightness(){
+    xrandr --output $monitor --brightness `echo "scale=1; $brightness/100" | bc`
+    echo $brightness > ./.brightness
+}
 
 
-if [ $1="+" ]
-    then 
-        if [ $BRIGHTNESS -lt 100 ]
-            then    
-                let "BRIGHTNESS += 10 "
-                #xrandr --output $monitor --brightness `echo "$BRIGHTNESS/100" | bc`
-                echo "Brightness of $monitor has been increased to $BRIGHTNESS %."
-                exit
-        fi
+#note there is no validation for a hard set, this value can be anything
+if [[ $1 == "set" ]]
+    then
+        brightness=$2
+        set_brightness
+        echo "Brightness of $monitor has been set to $brightness %."
+        exit
 fi
 
-if [ $1="-" ]
-    then 
-        if [ $BRIGHTNESS -gt 40 ]
-            then    
-                let "BRIGHTNESS -= 10 "
-                #xrandr --output $monitor --brightness `echo "$BRIGHTNESS/100" | bc`
-                echo "Brightness of $monitor has been decreased to $BRIGHTNESS %."
-                exit
-        fi
+if [[ $1 == "full" ]]
+    then
+        brightness=$MAX
+        set_brightness
+        echo "Brightness of $monitor has been set to $brightness %."
+        exit
 fi
 
-#increas or decrease brightness
+if [[ $1 == "low" ]]
+    then
+        brightness=$MIN
+        set_brightness
+        echo "Brightness of $monitor has been set to $brightness %."
+        exit
+fi
 
+if [[ $1 == "+" ]]
+    then 
+        if [ $brightness -lt $MAX ]
+            then    
+                let "brightness += 10 "
+                set_brightness
+                echo "Brightness of $monitor has been increased to $brightness%."
+                exit
+        fi
+    echo cannot go higher than this
+    exit 1
+fi
 
-echo invalid argument
-exit 1
+if [[ $1 == "-" ]]
+    then 
+        if [ $brightness -gt $MIN ]
+            then    
+                let "brightness -= 10 "
+                set_brightness
+                echo "Brightness of $monitor has been decreased to $brightness%."
+                exit
+        fi
+    echo cannot go lower than this
+    exit 1    
+fi
+
+#by default with no arguments the brightness will be set to the .brightness value
+set_brightness
+exit
 
 
 
