@@ -52,6 +52,14 @@ if [[ $1 == "low" ]]
         exit
 fi
 
+#this function does not set the brightness variable to 0, it just turns the brightness of screen to 0
+if [[ $1 == "tmpOff" ]]
+    then
+        xrandr --output $monitor --brightness 0 
+        exit
+fi
+
+
 if [[ $1 == "+" ]]
     then 
         if [ $brightness -lt $MAX ]
