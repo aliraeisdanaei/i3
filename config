@@ -31,6 +31,7 @@ font pango:monospace 10
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
+
 ###########################################
 ## Network Manager                       ##
 ###########################################
@@ -310,7 +311,7 @@ bindsym $alt+g exec ~/genymotion/genymotion
 #open all emails
 bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/2/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/1/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/0/h/19khb87pacpbu/?zy=g&f=1#inbox
 
-#open config file in vs code and open a terminal to its directory
+#open config file in vs code and open a terminal to its directory (to push onto repository after edditing)
 bindsym $alt+i exec code ~/.config/i3/config; exec $terminal --workdir ~/.config/i3
 bindsym $mod+i exec code ~/.config/i3/config; exec $terminal --workdir ~/.config/i3
 
