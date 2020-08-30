@@ -15,13 +15,11 @@ set $alt Mod1
 ## FONT                                  ##
 ###########################################
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# Font for window titles. 
 font pango:monospace 10
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+
+#font pango:DejaVu Sans Mono 12
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -111,8 +109,9 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-#change focus keys that I have been used to from windows
+#alternative change focus
 bindsym $alt+Tab focus down
+bindsym $alt+grave focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -156,9 +155,9 @@ bindsym $mod+a focus parent
 
 #always start on stacking layout as default
 for_window [workspace=$ws1] layout stacking
-for_window [workspace=$ws2] layout stacking
-for_window [workspace=$ws3] layout stacking
-for_window [workspace=$ws4] layout stacking
+#for_window [workspace=$ws2] layout stacking
+#for_window [workspace=$ws3] layout stacking
+#for_window [workspace=$ws4] layout stacking
 for_window [workspace=$ws5] layout stacking
 for_window [workspace=$ws6] layout stacking
 for_window [workspace=$ws7] layout stacking
@@ -183,9 +182,9 @@ bindsym $mod+Shift+space floating toggle
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws2 "2 Com" 
+set $ws3 "3 Dev"
+set $ws4 "4 Stu"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -223,9 +222,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ###########################################
 
 # reload the configuration file and kill all background scripts
-bindsym $mod+Shift+c reload; exec ~/.config/i3/scripts/breakTimer/killer.sh
+bindsym $mod+Shift+c exec ~/.config/i3/scripts/breakTimer/killer.sh; reload; 
 # restart i3 inplace and kill all background scripts
-bindsym $mod+Shift+r restart; exec ~/.config/i3/scripts/breakTimer/killer.sh
+bindsym $mod+Shift+r exec ~/.config/i3/scripts/breakTimer/killer.sh; restart; 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -277,6 +276,7 @@ bindsym $mod+r mode "resize"
 
 bar{
         status_command i3status
+        font pango:Inconsolata 15
         position top
 }
 
@@ -298,7 +298,7 @@ exec --no-startup-id xinput set-prop 10 306 1
 #enable automatic back and forth between workspaces
 workspace_auto_back_and_forth yes
 
-#20_20_20 Timer & keybinding to kill it (no key binding to start timer, since  there cannot be more than one running. )
+#20_20_20 Timer & keybinding to kill it (no key binding to start timer, since  there cannot be more than one running.)
 exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh
 bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/killer.sh
 
@@ -318,6 +318,11 @@ mode "persian" {
 }
 
 bindsym $mod+p mode "persian"
+
+
+
+
+
 
 
 ###########################################
@@ -353,6 +358,20 @@ bindsym $mod+i exec code ~/.config/i3/config; exec $terminal --workdir ~/.config
 #open file manager
 bindsym $alt+f exec $fileManager
 
+
+###########################################
+## OPEN CONFIGURED WORKSPACES            ##
+###########################################
+
+#2 Communications
+bindsym $alt+2 workspace 2:Com; exec telegram-desktop; exec ~/genymotion/genymotion;
+
+
+#3 Development
+bindsym $alt+3 workspace 3:Dev; layout stacked; exec $terminal; split h; exec code; 
+
+#4 Study
+bindsym $alt+4 workspace 4:Stu; exec google-chrome https://drive.google.com/drive/u/1/my-drive; exec google-chrome 
 
 ###########################################
 ## SHUTDOWN & REBOOT                     ##

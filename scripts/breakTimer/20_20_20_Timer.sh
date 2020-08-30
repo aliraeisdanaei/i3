@@ -10,6 +10,7 @@ let workTime=$workTime*60
 
 breakTime=20
 
+sleep 1
 mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Shutdown_Sound.mp3
 
 
@@ -25,8 +26,9 @@ do
     
     sleep $breakTime
     echo "break over get back to work"
-    mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Startup_Sound.mp3
     $HOME/.config/i3/scripts/brightnessControl.sh
+    mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Startup_Sound.mp3
+
     
 
 done    
