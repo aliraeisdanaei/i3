@@ -298,9 +298,10 @@ exec --no-startup-id xinput set-prop 10 306 1
 #enable automatic back and forth between workspaces
 workspace_auto_back_and_forth yes
 
-#20_20_20 Timer & keybinding to kill it (no key binding to start timer, since  there cannot be more than one running.)
+#20_20_20 Timer & keybinding to kill it 
 exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh
 bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/killer.sh
+bindsym $mod+n exec ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh
 
 
 ###########################################
@@ -318,12 +319,6 @@ mode "persian" {
 }
 
 bindsym $mod+p mode "persian"
-
-
-
-
-
-
 
 ###########################################
 ## BINDINGS FOR PRORGAMS                 ##

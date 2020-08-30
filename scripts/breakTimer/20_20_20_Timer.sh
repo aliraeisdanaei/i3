@@ -10,6 +10,7 @@ let workTime=$workTime*60
 
 breakTime=20
 
+
 sleep 1
 mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Shutdown_Sound.mp3
 
