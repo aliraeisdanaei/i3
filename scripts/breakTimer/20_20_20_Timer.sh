@@ -4,12 +4,14 @@
 #and wait breakTime to load back up with a sound
 #It is designed to guide user to take 20 20 20 breaks
 
-workTime=1
+workTime=20
 #converting the minutes into seconds
 let workTime=$workTime*60 
-echo $workTime
 
 breakTime=20
+
+mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Shutdown_Sound.mp3
+
 
 while [ true ]
 do
@@ -17,14 +19,14 @@ do
 
     #shut screen down and make sound
     echo "take a break"
-    #mplayer ./sounds/WindowsXp_Shutdown_Sound.mp3
-    # $HOME/.config/i3/scripts/brightnessControl.sh tmpOff
+    mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Shutdown_Sound.mp3
+    $HOME/.config/i3/scripts/brightnessControl.sh tmpOff
     
     
     sleep $breakTime
     echo "break over get back to work"
-    #mplayer ./sounds/WindowsXp_Startup_Sound.mp3
-    # $HOME/.config/i3/scripts/brightnessControl.sh
+    mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Startup_Sound.mp3
+    $HOME/.config/i3/scripts/brightnessControl.sh
     
 
 done    

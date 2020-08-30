@@ -1,14 +1,8 @@
 #!/bin/bash
 
-#this script kills the 20_20_20_Timer.sh
+#this script kills the 20_20_20_Timer.sh and if successful gives a sound
 
 
-# while true
-# do
-#   sleep $1
-#   ps -ef | grep 20_20_20_Timer.sh  | grep -v grep | awk '{print $2}' | xargs kill -9  
-
-# done
-
-ps -ef | grep 20_20_20_Timer.sh  | grep -v grep | awk '{print $2}' | xargs kill -9  
-
+if ps -ef | grep 20_20_20_Timer.sh  | grep -v grep | awk '{print $2}' | xargs kill -9 ; then
+    mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Error_Sound.mp3    
+fi
