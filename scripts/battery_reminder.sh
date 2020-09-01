@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 while [ true ]
 do
     #this line outputs the percent of the battery 
@@ -16,12 +18,14 @@ do
         if [ $battery_percent -le $CRITICAL_LOW ]
             then 
             zenity --error --text '<span foreground="red" font="32" >\n\nBattery level is CRITICAL!\nPLUG IN YOUR COMPUTER NOW!</span>' --title="CRITICAL BATTERY LEVEL!" --width=800 --height=400
-    
+            mplayer ~/.config/i3/scripts/sounds/WindowsXp_LowBattery_Sound.mp3    
+
 
         elif [ $battery_percent -le $LOW ]
             then
         
             zenity --error --text '<span foreground="blue" font="32" >\n\nBattery level is LOW!\nPLUG IN YOUR COMPUTER!</span>' --title="LOW BATTERY LEVEL!" --width=800 --height=400
+            mplayer ~/.config/i3/scripts/sounds/WindowsXp_LowBattery_Sound.mp3    
 
         fi
     fi

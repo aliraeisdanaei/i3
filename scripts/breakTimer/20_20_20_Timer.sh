@@ -12,7 +12,7 @@ breakTime=20
 
 
 sleep 1
-mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Shutdown_Sound.mp3
+mplayer ~/.config/i3/scripts/sounds/WindowsXp_Startup_Sound.mp3
 
 
 while [ true ]
@@ -21,14 +21,14 @@ do
 
     #shut screen down and make sound
     echo "take a break"
-    mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Shutdown_Sound.mp3
+    mplayer ~/.config/i3/scripts/sounds/WindowsXp_Shutdown_Sound.mp3
     $HOME/.config/i3/scripts/brightnessControl.sh tmpOff
     
     
     sleep $breakTime
     echo "break over get back to work"
     $HOME/.config/i3/scripts/brightnessControl.sh
-    mplayer ~/.config/i3/scripts/breakTimer/sounds/WindowsXp_Startup_Sound.mp3
+    mplayer ~/.config/i3/scripts/sounds/WindowsXp_Startup_Sound.mp3
 
     
 

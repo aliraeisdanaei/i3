@@ -303,7 +303,7 @@ exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh
 bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/killer.sh
 
 #the battery_reminder 
-exec_always --no-staartup-id ~/.config/i3/scripts/batter_reminder.sh
+exec_always --no-startup-id ~/.config/i3/scripts/battery_reminder.sh
 
 
 ###########################################
