@@ -291,17 +291,19 @@ exec feh --bg-fill ~/.wallpaper.jpg
 #adding clipboard automatically
 exec --no-startup-id clipit
 
-#enable touchpad tap to click using xinput --> (1) xinput list to see devices (2) xinpuut list-props "device name" (3) xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" "Synaptics Tap Action" 0
+#enable touchpad tap to click using xinput
 #the device id for touchpad is 10 and the tapping (306) is enabled (1)
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 322 1
+exec --no-startup-id xinput set-prop 10 306 1
 
 #enable automatic back and forth between workspaces
 workspace_auto_back_and_forth yes
 
-#20_20_20 Timer & keybinding to kill it 
+#20_20_20 Timer & keybinding to kill it (no key binding to start timer, since  there cannot be more than one running.)
 exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh
 bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/killer.sh
-bindsym $mod+n exec ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh
+
+#the battery_reminder 
+exec_always --no-staartup-id ~/.config/i3/scripts/batter_reminder.sh
 
 
 ###########################################
@@ -319,6 +321,12 @@ mode "persian" {
 }
 
 bindsym $mod+p mode "persian"
+
+
+
+
+
+
 
 ###########################################
 ## BINDINGS FOR PRORGAMS                 ##
@@ -359,14 +367,14 @@ bindsym $alt+f exec $fileManager
 ###########################################
 
 #2 Communications
-bindsym $alt+2 workspace 2 Com; exec telegram-desktop; exec ~/genymotion/genymotion;
+bindsym $alt+2 workspace 2:Com; exec telegram-desktop; exec ~/genymotion/genymotion;
 
 
 #3 Development
-bindsym $alt+3 workspace 3 Dev; layout stacked; exec $terminal; split h; exec code; 
+bindsym $alt+3 workspace 3:Dev; layout stacked; exec $terminal; split h; exec code; 
 
 #4 Study
-bindsym $alt+4 workspace 4 Stu; exec google-chrome https://drive.google.com/drive/u/1/my-drive; exec google-chrome 
+bindsym $alt+4 workspace 4:Stu; exec google-chrome https://drive.google.com/drive/u/1/my-drive; exec google-chrome 
 
 ###########################################
 ## SHUTDOWN & REBOOT                     ##
