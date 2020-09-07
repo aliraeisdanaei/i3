@@ -3,17 +3,26 @@
 
 
 while [ true ]
-do
+do 
+
+
     #this line outputs the percent of the battery 
     battery_percent=`cat /sys/class/power_supply/BAT0/capacity`
 
+
+
     #this line extracts if the battery is Discharging, or not. 
-    battery_stauts=`acpi | cut -d " " -f3`
-    LOW=35
+    battery_status=`acpi | cut -d " " -f3`
+    LOW=40
     CRITICAL_LOW=25
 
+    # zenity --error --text '<span foreground="red" font="32" >Still Working</span>' --title="CRITICAL BATTERY LEVEL!" --width=800 --height=400
 
-    if [ $battery_stauts = "Discharging," ]
+
+    echo $battery_status $battery_percent
+
+
+    if [ $battery_status = "Discharging," ]
         then
         if [ $battery_percent -le $CRITICAL_LOW ]
             then 
@@ -29,7 +38,6 @@ do
         fi
     fi
 
-    
+    sleep 60
 
-    sleep 5m
 done

@@ -18,7 +18,7 @@ brightness=`cat ./.brightness` || (echo 100 > ./.brightness && brightness=100)
 # echo $brightness
 
 MAX=150
-MIN=60
+MIN=50
 
 #function sets the brightness to the variable brightness
 set_brightness(){
