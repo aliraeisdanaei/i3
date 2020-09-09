@@ -38,6 +38,6 @@ do
         fi
     fi
 
-    sleep 60
+    sleep 200
 
 done

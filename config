@@ -180,7 +180,7 @@ bindsym $mod+Shift+space floating toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
+set $ws1 "1 Gen"
 set $ws2 "2 Com" 
 set $ws3 "3 Dev"
 set $ws4 "4 Stu"
@@ -303,9 +303,8 @@ workspace_auto_back_and_forth yes
 exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh; exec ~/.config/i3/scripts/battery_reminder.sh
 bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 
-
-#the battery_reminder 
-exec_always --no-startup-id ~/.config/i3/scripts/battery_reminder.sh
+#killing and then starting a new 20_20_20 Timer
+bindsym $mod+plus exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 
 
 ###########################################
@@ -350,14 +349,18 @@ bindsym $alt+t exec telegram-desktop
 bindsym $alt+g exec ~/genymotion/genymotion
 
 #open all emails
-bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/2/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/1/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/0/h/19khb87pacpbu/?zy=g&f=1#inbox
+bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/0/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/1/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/2/h/19khb87pacpbu/?zy=g&f=1#inbox
 
-#open config file in vs code and open a terminal to its directory (to push onto repository after edditing)
-bindsym $alt+i exec code ~/.config/i3/config; exec $terminal --workdir ~/.config/i3
-bindsym $mod+i exec code ~/.config/i3/config; exec $terminal --workdir ~/.config/i3
+#open .config/i3 in vs code
+bindsym $alt+i exec code ~/.config/i3
+bindsym $mod+i exec code ~/.config/i3
 
 #open file manager
 bindsym $alt+f exec $fileManager
+
+#open calc (program written by Ali Raeisdanaei under /usr/bin)
+bindsym $alt+plus exec calc
+
 
 
 ###########################################
@@ -365,14 +368,14 @@ bindsym $alt+f exec $fileManager
 ###########################################
 
 #2 Communications
-bindsym $alt+2 workspace 2 Com; exec telegram-desktop; exec ~/genymotion/genymotion;
+bindsym $alt+2 workspace number $ws2; exec telegram-desktop; exec ~/genymotion/genymotion;
 
 
 #3 Development
-bindsym $alt+3 workspace 3 Dev; exec $terminal; split h; exec code; 
+bindsym $alt+3 workspace number $ws3; exec $terminal; 
 
 #4 Study
-bindsym $alt+4 workspace 4 Stu; exec google-chrome https://drive.google.com/drive/u/1/my-drive; exec google-chrome 
+bindsym $alt+4 workspace number $ws4; exec google-chrome https://drive.google.com/drive/u/1/my-drive; exec google-chrome 
 
 ###########################################
 ## SHUTDOWN & REBOOT                     ##
