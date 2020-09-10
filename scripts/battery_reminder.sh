@@ -1,5 +1,6 @@
 #!/bin/bash
 
+zenity --error --text '<span foreground="green" font="32" >\n\nBattery Reminder Working</span>' --title="Working!" --width=800 --height=400
 
 
 while [ true ]
@@ -16,7 +17,6 @@ do
     LOW=40
     CRITICAL_LOW=25
 
-    # zenity --error --text '<span foreground="red" font="32" >Still Working</span>' --title="CRITICAL BATTERY LEVEL!" --width=800 --height=400
 
 
     echo $battery_status $battery_percent

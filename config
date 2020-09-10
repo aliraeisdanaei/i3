@@ -307,7 +307,7 @@ bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 bindsym $mod+plus exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 
 #battery reminder
-exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh; exec ~/.config/i3/scripts/battery_reminder.sh
+exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
 
 
 ###########################################
@@ -347,6 +347,7 @@ bindsym $mod+i exec code ~/.config/i3
 bindsym $alt+f exec $fileManager
 
 #open calc (program written by Ali Raeisdanaei under /usr/bin)
+for_window [class="calc"] floating enable
 bindsym $alt+plus exec calc
 
 
