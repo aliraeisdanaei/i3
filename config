@@ -314,12 +314,13 @@ exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
 ## BINDINGS FOR PRORGAMS                 ##
 ###########################################
 
-set $terminal konsole
+set $terminal cool-retro-term
+set $terminal_alt konsole
 set $fileManager dolphin
 
 # start a terminal
 bindsym $mod+Return exec $terminal
-bindsym $alt+Return exec $terminal
+bindsym $alt+Return exec $terminal_alt
 
 #open vscode
 bindsym $alt+v exec code
@@ -333,7 +334,7 @@ bindsym $alt+y exec google-chrome https://www.youtube.com
 #open telegram
 bindsym $alt+t exec telegram-desktop
 
-#open genymotion for whatsappuse
+#open genymotion for whatsapp
 bindsym $alt+g exec ~/genymotion/genymotion
 
 #open all emails
@@ -347,8 +348,10 @@ bindsym $mod+i exec code ~/.config/i3
 bindsym $alt+f exec $fileManager
 
 #open calc (program written by Ali Raeisdanaei under /usr/bin)
-for_window [class="calc"] floating enable
 bindsym $alt+plus exec calc
+
+#open shutter 
+bindsym $alt+s exec shutter
 
 
 ###########################################
