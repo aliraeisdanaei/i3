@@ -13,7 +13,11 @@ monitor=`xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1`
 # echo $monitor
 
 #setting the current brightness
-brightness=`cat ./.brightness` || (echo 100 > ./.brightness && brightness=100)
+brightness=`cat ~/.config/i3/scripts/.brightness` || (echo 100 > ~/.config/i3/scripts/.brightness && brightness=100)
+if [ -z $brightness ]
+then
+    echo 100 > ~/.config/i3/scripts/.brightness && brightness=100
+fi
 
 # echo $brightness
 
@@ -23,7 +27,9 @@ MIN=50
 #function sets the brightness to the variable brightness
 set_brightness(){
     xrandr --output $monitor --brightness `echo "scale=1; $brightness/100" | bc`
-    echo $brightness > ./.brightness
+    echo $brightness > ~/.config/i3/scripts/.brightness
+    echo file content
+    cat .brightness
 }
 
 

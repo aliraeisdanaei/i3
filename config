@@ -57,26 +57,26 @@ bindsym Control+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -
 ###########################################
 
 #the brightness is set on startup to the brightness it was previously
-exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh
+exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh && $refresh_i3status
 
 #to put asleep the entire screen
 bindsym $mod+$alt+z exec ~/.config/i3/scripts/brightnessControl.sh tmpOff
 
 #to wake up the screen to full capacity 
-bindsym $mod+$alt+f exec ~/.config/i3/scripts/brightnessControl.sh full
+bindsym $mod+$alt+f exec ~/.config/i3/scripts/brightnessControl.sh full && $refresh_i3status
 
 #to set screen brightness to 1001
-bindsym $mod+$alt+1 exec ~/.config/i3/scripts/brightnessControl.sh set 100
+bindsym $mod+$alt+1 exec ~/.config/i3/scripts/brightnessControl.sh set 100 && $refresh_i3status
 
 #to set screen to lowest capacity
-bindsym $mod+$alt+l exec ~/.config/i3/scripts/brightnessControl.sh low
+bindsym $mod+$alt+l exec ~/.config/i3/scripts/brightnessControl.sh low && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightnessControl.sh +
-bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightnessControl.sh -
+bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightnessControl.sh + && $refresh_i3status
+bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightnessControl.sh - && $refresh_i3status
 
 #alternative key binding for raising and lowering brightness
-bindsym Control+Right exec ~/.config/i3/scripts/brightnessControl.sh +
-bindsym Control+Left exec ~/.config/i3/scripts/brightnessControl.sh -
+bindsym Control+Right exec ~/.config/i3/scripts/brightnessControl.sh + && $refresh_i3status
+bindsym Control+Left exec ~/.config/i3/scripts/brightnessControl.sh - && $refresh_i3status
 
 
 ###########################################
@@ -277,6 +277,8 @@ bar{
         status_command i3status
         font pango:Inconsolata 15
         position top
+        separator_symbol ⁞
+
 }
 
 
