@@ -28,6 +28,109 @@ font pango:monospace 10
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+###########################################
+## German Keyboard                       ##
+###########################################
+
+# the way that keyboards work is we use bindings to trigger a copy of certain letters to a clipboard
+# and then immediately pasting it
+
+mode "Deutsch" {
+        bindsym --release Control+a exec echo ä | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+a exec echo Ä | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+        bindsym --release Control+u exec echo ü | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+u exec echo Ü | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+        bindsym --release Control+o exec echo ö | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+o exec echo Ö | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+        bindsym --release Control+s exec echo ß | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+
+        # back to normal: Enter or Escape or $mod+g
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+g mode "default"
+}
+
+# d was unfortunately taken for the dmenu
+bindsym $mod+g mode "Deutsch"
+
+
+###########################################
+## Persian Keyboard                      ##
+###########################################
+
+# Persian keyboards can be really unintuitive, this is a personal layout that makes intuitive sense based on the sounds of the keyboards.
+# the way that keyboards work is we use bindings to trigger a copy of certain letters to a clipboard
+# and then immediately pasting it
+
+mode "Persian" {
+        # the general logic behind the keyboard is that the sounds are the same with the english keyboard.
+        # duplicate letters for sounds have like the 's' letter have keybindings of Shift, Ctrl, then Ctrl+Shift in the order of the persian alphabet
+        # non existent letters such as 'sh' 'kh' are all shift
+
+        # these keybindings are loosely based on this website https://www.lexilogos.com/keyboard/persian.htm
+
+        bindsym --release a exec echo ا | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release b exec echo ب | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release p exec echo پ | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release t exec echo ت | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+s exec echo ث | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release j exec echo ج | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+c exec echo چ | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        # 'ه' is more common so the regular h is reserved for that
+        bindsym --release Shift+h exec echo ح | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        bindsym --release Shift+k exec echo خ | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release d exec echo د | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        #this 'z' is less common so it takes the shift
+        bindsym --release Shift+z exec echo ذ | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        bindsym --release r exec echo ر | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release z exec echo ز | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+z exec echo ژ | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release s exec echo س | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+s exec echo ش | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+s exec echo ص | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+z exec echo ض | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+t exec echo ط | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+a exec echo ع | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+q exec echo غ | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release f exec echo ف | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release q exec echo ق | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        # double key binding since there are two English letters 
+        bindsym --release k exec echo ک | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release c exec echo ک | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+        bindsym --release g exec echo گ | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release l exec echo ل | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release m exec echo م | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release n exec echo ن | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        #double keybinding since there are two English letters
+        bindsym --release v exec echo و | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release o exec echo و | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        bindsym --release h exec echo ه | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        
+        # double key binding since there are two English letters 
+        bindsym --release y exec echo ی | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release i exec echo ی | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+
+        # back to normal: Enter or Escape or $mod+p
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+p mode "default"
+}
+
+bindsym $mod+p mode "Persian"
+
 
 ###########################################
 ## Network Manager                       ##
