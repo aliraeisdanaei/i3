@@ -10,16 +10,16 @@
 
 #setting the connected monitor as a variable
 monitor=`xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1` 
-# echo $monitor
+#echo -n $monitor
 
 #setting the current brightness
 brightness=`cat ~/.config/i3/scripts/.brightness` || (echo 100 > ~/.config/i3/scripts/.brightness && brightness=100)
 if [ -z $brightness ]
 then
-    echo 100 > ~/.config/i3/scripts/.brightness && brightness=100
+   echo -n 100 > ~/.config/i3/scripts/.brightness && brightness=100
 fi
 
-# echo $brightness
+#echo -n $brightness
 
 MAX=150
 MIN=50
@@ -27,8 +27,8 @@ MIN=50
 #function sets the brightness to the variable brightness
 set_brightness(){
     xrandr --output $monitor --brightness `echo "scale=1; $brightness/100" | bc`
-    echo $brightness > ~/.config/i3/scripts/.brightness
-    echo file content
+   echo -n $brightness > ~/.config/i3/scripts/.brightness
+   echo -n file content
     cat .brightness
 }
 
@@ -38,7 +38,7 @@ if [[ $1 == "set" ]]
     then
         brightness=$2
         set_brightness
-        echo "Brightness of $monitor has been set to $brightness %."
+       echo -n "Brightness of $monitor has been set to $brightness %."
         exit
 fi
 
@@ -46,7 +46,7 @@ if [[ $1 == "full" ]]
     then
         brightness=$MAX
         set_brightness
-        echo "Brightness of $monitor has been set to $brightness %."
+       echo -n "Brightness of $monitor has been set to $brightness %."
         exit
 fi
 
@@ -54,7 +54,7 @@ if [[ $1 == "low" ]]
     then
         brightness=$MIN
         set_brightness
-        echo "Brightness of $monitor has been set to $brightness %."
+       echo -n "Brightness of $monitor has been set to $brightness %."
         exit
 fi
 
@@ -72,10 +72,10 @@ if [[ $1 == "+" ]]
             then    
                 let "brightness += 10 "
                 set_brightness
-                echo "Brightness of $monitor has been increased to $brightness%."
+               echo -n "Brightness of $monitor has been increased to $brightness%."
                 exit
         fi
-    echo cannot go higher than this
+   echo -n cannot go higher than this
     exit 1
 fi
 
@@ -85,10 +85,10 @@ if [[ $1 == "-" ]]
             then    
                 let "brightness -= 10 "
                 set_brightness
-                echo "Brightness of $monitor has been decreased to $brightness%."
+               echo -n "Brightness of $monitor has been decreased to $brightness%."
                 exit
         fi
-    echo cannot go lower than this
+   echo -n cannot go lower than this
     exit 1    
 fi
 

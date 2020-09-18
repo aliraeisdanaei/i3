@@ -19,7 +19,7 @@ do
 
 
 
-    echo $battery_status $battery_percent
+   echo -n $battery_status $battery_percent
 
 
     if [ $battery_status = "Discharging," ]
