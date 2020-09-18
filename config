@@ -48,10 +48,10 @@ mode "Deutsch" {
         bindsym --release Control+s exececho -n ß | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
 
-        # back to normal: Enter or Escape or $mod+g
-        bindsym Return mode "default"
+        # back to normal: Escape, mod or $mod+g
         bindsym Escape mode "default"
         bindsym $mod+g mode "default"
+        bindsym $mod mode "default"
 }
 
 # d was unfortunately taken for the dmenu
@@ -123,10 +123,10 @@ mode "Persian" {
         bindsym --release i exececho -n ی | xclip -selection c; exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
 
-        # back to normal: Enter or Escape or $mod+p
-        bindsym Return mode "default"
+        # back to normal: Escape, mod or $mod+p
         bindsym Escape mode "default"
         bindsym $mod+p mode "default"
+        bindsym $mod mode "default"
 }
 
 bindsym $mod+p mode "Persian"
