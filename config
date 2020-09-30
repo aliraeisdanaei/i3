@@ -36,16 +36,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and then immediately pasting it
 
 mode "Deutsch" {
-        bindsym --release Control+a exececho -n ä| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Control+Shift+a exececho -n Ä | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release Control+a exec echo -n ä| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+a exec echo -n Ä | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
-        bindsym --release Control+u exececho -n ü | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Control+Shift+u exececho -n Ü | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release Control+u exec echo -n ü | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+u exec echo -n Ü | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
-        bindsym --release Control+o exececho -n ö | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Control+Shift+o exececho -n Ö | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release Control+o exec echo -n ö | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+o exec echo -n Ö | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
-        bindsym --release Control+s exececho -n ß | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release Control+s exec echo -n ß | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
 
         # back to normal: Escape, mod or $mod+g
@@ -73,54 +73,54 @@ mode "Persian" {
 
         # these keybindings are loosely based on this website https://www.lexilogos.com/keyboard/persian.htm
 
-        bindsym --release a exececho -n ا | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release b exececho -n ب | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release p exececho -n پ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release t exececho -n ت | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Shift+s exececho -n ث | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release j exececho -n ج | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Shift+c exececho -n چ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release a exec echo -n ا | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release b exec echo -n ب | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release p exec echo -n پ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release t exec echo -n ت | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+s exec echo -n ث | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release j exec echo -n ج | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+c exec echo -n چ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
         # 'ه' is more common so the regular h is reserved for that
-        bindsym --release Shift+h exececho -n ح | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release Shift+h exec echo -n ح | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
-        bindsym --release Shift+k exececho -n خ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release d exececho -n د | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release Shift+k exec echo -n خ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release d exec echo -n د | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
         #this 'z' is less common so it takes the shift
-        bindsym --release Shift+z exececho -n ذ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release Shift+z exec echo -n ذ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
-        bindsym --release r exececho -n ر | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release z exececho -n ز | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Shift+z exececho -n ژ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release s exececho -n س | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Shift+s exececho -n ش | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Control+s exececho -n ص | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Control+z exececho -n ض | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Shift+t exececho -n ط | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Shift+a exececho -n ع | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release Shift+q exececho -n غ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release f exececho -n ف | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release q exececho -n ق | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release r exec echo -n ر | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release z exec echo -n ز | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+z exec echo -n ژ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release s exec echo -n س | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+s exec echo -n ش | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+s exec echo -n ص | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+z exec echo -n ض | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+t exec echo -n ط | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+a exec echo -n ع | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+q exec echo -n غ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release f exec echo -n ف | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release q exec echo -n ق | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
         # double key binding since there are two English letters 
-        bindsym --release k exececho -n ک | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release c exececho -n ک | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release k exec echo -n ک | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release c exec echo -n ک | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
-        bindsym --release g exececho -n گ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release l exececho -n ل | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release m exececho -n م | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release n exececho -n ن | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release g exec echo -n گ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release l exec echo -n ل | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release m exec echo -n م | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release n exec echo -n ن | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
         #double keybinding since there are two English letters
-        bindsym --release v exececho -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release o exececho -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release v exec echo -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release o exec echo -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
-        bindsym --release h exececho -n ه | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release h exec echo -n ه | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
         # double key binding since there are two English letters 
-        bindsym --release y exececho -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
-        bindsym --release i exececho -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v; exec --no-startup-id xdotool key --clearmodifiers ctrl
+        bindsym --release y exec echo -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release i exec echo -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
 
         # back to normal: Escape, mod or $mod+p
@@ -438,6 +438,12 @@ bindsym $alt+y exec google-chrome https://www.youtube.com
 
 #open telegram
 bindsym $alt+t exec telegram-desktop
+
+#open skype
+bindsym $aly+k exec skypeforlinux
+
+#open discord
+bindsym $alt+o exec discord
 
 #open genymotion for whatsapp
 bindsym $alt+g exec ~/genymotion/genymotion
