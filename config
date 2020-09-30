@@ -440,7 +440,7 @@ bindsym $alt+y exec google-chrome https://www.youtube.com
 bindsym $alt+t exec telegram-desktop
 
 #open skype
-bindsym $aly+k exec skypeforlinux
+bindsym $alt+k exec skypeforlinux
 
 #open discord
 bindsym $alt+o exec discord
