@@ -77,7 +77,7 @@ mode "Persian" {
         bindsym --release b exec echo -n ب | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release p exec echo -n پ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release t exec echo -n ت | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+s exec echo -n ث | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+s exec echo -n ث | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release j exec echo -n ج | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Shift+c exec echo -n چ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
@@ -116,8 +116,10 @@ mode "Persian" {
         bindsym --release v exec echo -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release o exec echo -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         
+        # double key binding
         bindsym --release h exec echo -n ه | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
+        bindsym --release e exec echo -n ه | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
         # double key binding since there are two English letters 
         bindsym --release y exec echo -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release i exec echo -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
