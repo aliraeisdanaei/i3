@@ -1,6 +1,6 @@
 #!/bin/bash
 
-zenity --error --text '<span foreground="green" font="32" >\n\nBattery Reminder Working.</span>' --title="Working!" --width=800 --height=400
+zenity --error --text '<span foreground="green" font="32" >\n\nBatterieerinnerung funktioniert.</span>' --title="Funkioniert!" --width=800 --height=400
 
 
 while [ true ]
