@@ -10,12 +10,10 @@ do
     #this line outputs the percent of the battery 
     battery_percent=`cat /sys/class/power_supply/BAT0/capacity`
 
-
-
     #this line extracts if the battery is Discharging, or not. 
     battery_status=`acpi | cut -d " " -f3`
-    LOW=20
-    CRITICAL_LOW=10
+    LOW=25
+    CRITICAL_LOW=15
 
 
 
@@ -30,7 +28,7 @@ do
             espeak -v de "Ihre Batterie ist kritisch schwach."    
             zenity --error --text '<span foreground="red" font="32" >\n\nBatteriestand ist KRITISCH!\nStecken Sie JETZT Ihren Computer ein!</span>' --title="Kritischer Batteriestand!" --width=800 --height=400
 
-
+    
         elif [ $battery_percent -le $LOW ]
             then
             # mplayer ~/.config/i3/scripts/sounds/WindowsXp_LowBattery_Sound.mp3  
