@@ -432,8 +432,11 @@ bindsym $alt+v exec code
 #open chrome 
 bindsym $alt+c exec google-chrome
 
+#open brave
+bindsym $alt+b exec brave
+
 #open youtube
-bindsym $alt+y exec google-chrome https://www.youtube.com
+bindsym $alt+y exec brave https://www.youtube.com
 
 #open telegram
 bindsym $alt+t exec telegram-desktop
@@ -448,7 +451,7 @@ bindsym $alt+o exec discord
 bindsym $alt+g exec ~/genymotion/genymotion
 
 #open all emails
-bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/0/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/1/h/19khb87pacpbu/?zy=g&f=1#inbox; exec google-chrome https://mail.google.com/mail/u/2/h/19khb87pacpbu/?zy=g&f=1#inbox
+bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/0/h/6qwjz8cdlokn/?zy=g&f=1; exec google-chrome https://mail.google.com/mail/u/1/h/6qwjz8cdlokn/?zy=g&f=1; exec google-chrome https://mail.google.com/mail/u/2/h/6qwjz8cdlokn/?zy=g&f=1
 
 #open .config/i3 in vs code
 bindsym $alt+i exec code ~/.config/i3
