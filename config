@@ -447,8 +447,8 @@ bindsym $alt+k exec skypeforlinux
 #open discord
 bindsym $alt+o exec discord
 
-#open genymotion for whatsapp
-bindsym $alt+g exec ~/genymotion/genymotion
+#open gedit
+bindsym $alt+g exec gedit
 
 #open all emails
 bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/0/h/6qwjz8cdlokn/?zy=g&f=1; exec google-chrome https://mail.google.com/mail/u/1/h/6qwjz8cdlokn/?zy=g&f=1; exec google-chrome https://mail.google.com/mail/u/2/h/6qwjz8cdlokn/?zy=g&f=1
