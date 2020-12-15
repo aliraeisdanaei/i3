@@ -20,7 +20,7 @@ font pango:monospace 10
 
 
 
-#font pango:DejaVu Sans Mono 12
+#font pango:DejaVu Sans Mono 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 
@@ -380,7 +380,7 @@ bindsym $mod+r mode "resize"
 
 bar{
         status_command i3status
-        font pango:Inconsolata 15
+        font pango:Inconsolata 14
         position top
         separator_symbol ⁞
 
