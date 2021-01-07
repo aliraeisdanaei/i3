@@ -1,7 +1,8 @@
 # i3 
 
-<p>This is an i3 configuration that is coded and used by the user. Many of its features and key bindings are custom made for the developer himself. </p>
+It features many cool key bindings that enhance the quality of computer use. 
+This repository includes many bash scripts that help increase the utility of the window manager. These include a script to dynamically change the wallpaper, a screen brightness changer, a battery reminder, and a 20-20-20 screen timer. 
 
+All of these scripts have been intergrated into the config files with unique key bindings. 
 
-<p>Anyone is free to use this configuration file as they wish.
-</p>
+Feel free to use this config file or any of the scripts for your use for the i3 windom manager. 
