@@ -1,4 +1,5 @@
 #!/bin/sh
+
 window=`xdotool getwindowfocus`
 WIDTH=$(xwininfo -id $window | grep -E '(Width)' | awk '{print $2}')
 HEIGHT=$(xwininfo -id $window | grep -E '(Height)' | awk '{print $2}')

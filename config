@@ -262,7 +262,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # sensible split
-for_window [class=.*] exec ~/.config/i3/scripts/sensible.sh
+# only performs sensible split if the file exists
+for_window [class=.*] exec test -f ~/.config/i3/scripts/.sensible_on && ~/.config/i3/scripts/sensible.sh
 
 ###########################################
 ## CONTAINER LAYOUT                      ##
@@ -285,6 +286,9 @@ for_window [class=.*] exec ~/.config/i3/scripts/sensible.sh
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+y layout toggle split
+
+bindsym $mod+n exec touch ~/.config/i3/scripts/.sensible_on
+bindsym $mod+m exec rm ~/.config/i3/scripts/.sensible_on
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
