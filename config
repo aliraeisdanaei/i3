@@ -29,6 +29,14 @@ font pango:monospace 10
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 ###########################################
+## BORDERS                               ##
+###########################################
+
+for_window [class="^.*"] border pixel 7
+
+
+
+###########################################
 ## German Keyboard                       ##
 ###########################################
 
@@ -170,7 +178,7 @@ bindsym $mod+$alt+z exec ~/.config/i3/scripts/brightnessControl.sh tmpOff
 #to wake up the screen to full capacity 
 bindsym $mod+$alt+f exec ~/.config/i3/scripts/brightnessControl.sh full && $refresh_i3status
 
-#to set screen brightness to 1001
+#to set screen brightness to 100
 bindsym $mod+$alt+1 exec ~/.config/i3/scripts/brightnessControl.sh set 100 && $refresh_i3status
 
 #to set screen to lowest capacity
@@ -208,10 +216,10 @@ bindsym $mod+d exec dmenu_run
 ###########################################
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 #alternative change focus
 bindsym $alt+Tab focus down
@@ -224,10 +232,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -236,7 +244,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+semicolon split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -252,6 +260,10 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+
+# sensible split
+for_window [class=.*] exec ~/.config/i3/scripts/sensible.sh
 
 ###########################################
 ## CONTAINER LAYOUT                      ##
@@ -345,10 +357,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -382,7 +394,7 @@ bar{
         status_command i3status
         font pango:Inconsolata 14
         position top
-        separator_symbol ⁞
+        separator_symbol |
 
 }
 
@@ -407,7 +419,8 @@ exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 306
 workspace_auto_back_and_forth yes
 
 #20_20_20 Timer & keybinding to kill it
-exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh;
+# exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh;
+bindsym $mod+Shift+BackSpace exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh;
 bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 
 #battery reminder
@@ -432,6 +445,9 @@ bindsym $alt+v exec code
 #open chrome 
 bindsym $alt+c exec google-chrome
 
+#open firefox
+bindsym $alt+x exec firefox
+
 #open brave
 bindsym $alt+b exec brave
 
@@ -442,16 +458,13 @@ bindsym $alt+y exec brave https://www.youtube.com
 bindsym $alt+t exec telegram-desktop
 
 #open skype
-bindsym $alt+k exec skypeforlinux
+#bindsym $alt+k exec skypeforlinux
 
 #open discord
-bindsym $alt+o exec discord
+bindsym $alt+o exec brave https://discord.com/channels/@me
 
 #open gedit
 bindsym $alt+g exec gedit
-
-#open all emails
-bindsym $alt+e exec google-chrome https://mail.google.com/mail/u/0/h/6qwjz8cdlokn/?zy=g&f=1; exec google-chrome https://mail.google.com/mail/u/1/h/6qwjz8cdlokn/?zy=g&f=1; exec google-chrome https://mail.google.com/mail/u/2/h/6qwjz8cdlokn/?zy=g&f=1
 
 #open .config/i3 in vs code
 bindsym $alt+i exec code ~/.config/i3
