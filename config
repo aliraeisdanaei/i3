@@ -261,7 +261,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-
 # sensible split
 for_window [class=.*] exec ~/.config/i3/scripts/sensible.sh
 
