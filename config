@@ -451,11 +451,11 @@ bindsym $alt+c exec google-chrome
 #open firefox
 bindsym $alt+x exec firefox
 
-#open brave
-bindsym $alt+b exec brave
+#open brave-browser
+bindsym $alt+b exec brave-browser
 
 #open youtube
-bindsym $alt+y exec brave https://www.youtube.com
+bindsym $alt+y exec brave-browser https://www.youtube.com
 
 #open telegram
 bindsym $alt+t exec telegram-desktop
@@ -464,7 +464,7 @@ bindsym $alt+t exec telegram-desktop
 #bindsym $alt+k exec skypeforlinux
 
 #open discord
-bindsym $alt+o exec brave https://discord.com/channels/@me
+bindsym $alt+o exec brave-browser https://discord.com/channels/@me
 
 #open gedit
 bindsym $alt+g exec gedit
