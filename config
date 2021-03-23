@@ -434,16 +434,20 @@ exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
 ## BINDINGS FOR PRORGAMS                 ##
 ###########################################
 
-set $terminal cool-retro-term
-set $terminal_alt konsole
+set $terminal konsole
+set $terminal_flag --hide-menubar
 set $fileManager dolphin
+set $browser brave-browser
 
 # start a terminal
-bindsym $mod+Return exec $terminal
-bindsym $alt+Return exec $terminal_alt
+bindsym $mod+Return exec $terminal $terminal_flag
+bindsym $alt+Return exec $terminal $terminal_flag 
 
 #open vscode
-bindsym $alt+v exec code
+bindsym $alt+shift+v exec code
+
+#open vim
+bindsym $alt+v exec $terminal -$terminal_flag e vim
 
 #open chrome 
 bindsym $alt+c exec google-chrome
@@ -451,27 +455,21 @@ bindsym $alt+c exec google-chrome
 #open firefox
 bindsym $alt+x exec firefox
 
-#open brave-browser
-bindsym $alt+b exec brave-browser
+#open browser
+bindsym $alt+b exec $browser
 
 #open youtube
-bindsym $alt+y exec brave-browser https://www.youtube.com
+bindsym $alt+y exec $browser https://www.youtube.com
 
 #open telegram
 bindsym $alt+t exec telegram-desktop
 
-#open skype
-#bindsym $alt+k exec skypeforlinux
-
-#open discord
-bindsym $alt+o exec brave-browser https://discord.com/channels/@me
-
 #open gedit
 bindsym $alt+g exec gedit
 
-#open .config/i3 in vs code
-bindsym $alt+i exec code ~/.config/i3
-bindsym $mod+i exec code ~/.config/i3
+#open .config/i3 in vim & terminal
+bindsym $alt+i exec $terminal $terminal_flag -e vim ~/.config/i3
+bindsym $mod+i exec $terminal $terminal_flag --workdir ~/.config/i3
 
 #open file manager
 bindsym $alt+f exec $fileManager
@@ -482,6 +480,9 @@ bindsym $alt+plus exec calc
 #open shutter 
 bindsym $alt+s exec shutter
 
+#open productivity file
+bindsym $alt+p exec libreoffice --calc ~/Productivity/work_times.xlsx
+
 
 ###########################################
 ## SHUTDOWN & REBOOT                     ##
@@ -489,6 +490,7 @@ bindsym $alt+s exec shutter
 
 bindsym $alt+$mod+r exec reboot
 bindsym $alt+$mod+s exec shutdown now
+
 
 
 
