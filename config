@@ -407,7 +407,7 @@ bar{
 ###########################################
 
 #draws a background
-exec ~/.config/i3/scripts/random_wallpaper.sh
+exec_always --no-startup-id ~/.config/i3/scripts/random_wallpaper.sh
 
 #adding clipboard automatically
 exec --no-startup-id clipit

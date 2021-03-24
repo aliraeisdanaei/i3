@@ -7,7 +7,8 @@ changeTime=60
 while [ true ]
 do
     file=`find ~/.wallpapers | shuf -n1`
-    feh --bg-center $file
+    echo $file
+    feh --bg-fill $file
 
     sleep $changeTime
 
