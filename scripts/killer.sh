@@ -6,3 +6,5 @@
 ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 
 ps -ef | grep battery_reminder.sh | grep -v grep | awk '{print $2}' | xargs kill -9 
+
+ps -ef | grep random_wallpaper.sh | grep -v grep | awk '{print $2}' | xargs kill -9 
