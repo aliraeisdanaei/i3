@@ -147,7 +147,7 @@ bindsym $mod+p mode "Persian"
 ###########################################
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec_always --no-startup-id nm-applet
+# exec_always --no-startup-id nm-applet
 
 
 ###########################################
@@ -410,12 +410,12 @@ bar{
 exec_always --no-startup-id ~/.config/i3/scripts/random_wallpaper.sh
 
 #adding clipboard automatically
-exec --no-startup-id clipit
+#exec --no-startup-id clipit
 
 #enable touchpad tap to click using xinput
 #(1) xinput lists (2) xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" (3) find the id of tapping and run below
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 322 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 306 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 307 1
 
 
 #enable automatic back and forth between workspaces
