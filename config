@@ -56,14 +56,13 @@ mode "Deutsch" {
         bindsym --release Control+s exec echo -n ß | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
 
-        # back to normal: Escape, mod or $mod+g
+        # back to normal: Escape, mod or $mod+d
         bindsym Escape mode "default"
-        bindsym $mod+g mode "default"
+        bindsym $mod+d mode "default"
         bindsym $mod mode "default"
 }
 
-# d was unfortunately taken for the dmenu
-bindsym $mod+g mode "Deutsch"
+bindsym $mod+d mode "Deutsch"
 
 
 ###########################################
@@ -204,12 +203,13 @@ bindsym $mod+Shift+q kill
 bindsym $mod+w kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec i3-dmenu-desktop
+#bindsym $mod+d exec i3-dmenu-desktop
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+g exec gdmenu_run
 
 ###########################################
 ## FOCUS & SPLITTING                     ##

@@ -7,13 +7,21 @@ cd ~/.config/i3/scripts
 chmod -R +x *sh
 
 
-echo \n Installing i3 status and pulling its config files
+echo \n"Installing i3 status and pulling its config files"
 pacman -Sy i3status
 cd ~/.config
 git clone https://github.com/aliraeisdanaei/i3status
 
+echo \n "Setting up gdmenu"
+cd ~
+mkdir Projects
+cd ~/Projects
+git clone https://github.com/rliang/gdmenu
+cd gdmenu
+make && sudo make install
 
-echo \n Installing i3 dependencies
+
+echo \n"Installing i3 dependencies"
 pacman -Sy clipit
 pacman -Sy xinput xorg-input
 pacman -Sy curl
