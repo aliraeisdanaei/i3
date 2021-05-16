@@ -14,12 +14,11 @@ git clone https://github.com/aliraeisdanaei/i3status
 
 
 echo \n Installing i3 dependencies
-pacman -Sy dmenu
 pacman -Sy clipit
 pacman -Sy xinput xorg-input
 pacman -Sy curl
 pacman -Sy xclip xdotool
-
+pacman -Sy feh
 
 echo \n\n"Getting vim configs"
 cd ~/.config
