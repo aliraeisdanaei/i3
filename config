@@ -341,9 +341,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ###########################################
 
 # reload the configuration file and kill all background scripts
-bindsym $mod+Shift+c exec ~/.config/i3/scripts/killer.sh; reload; 
+bindsym $mod+Shift+c exec ~/.config/i3/scripts/killer.sh; exec --no-startup-id  killall clipit; reload; 
 # restart i3 inplace and kill all background scripts
-bindsym $mod+Shift+r exec ~/.config/i3/scripts/killer.sh; restart; 
+bindsym $mod+Shift+r exec ~/.config/i3/scripts/killer.sh; exec --no-startup-id  killall clipit; restart; 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -414,8 +414,8 @@ exec_always --no-startup-id clipit
 
 #enable touchpad tap to click using xinput
 #(1) xinput lists (2) xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" (3) find the id of tapping and run below
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 324 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 307 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 321 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 320 1
 
 
 #enable automatic back and forth between workspaces
@@ -437,7 +437,7 @@ exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
 set $terminal konsole
 set $terminal_flag --hide-menubar
 set $fileManager dolphin
-set $browser brave-browser
+set $browser brave
 
 # start a terminal
 bindsym $mod+Return exec $terminal $terminal_flag
@@ -480,8 +480,8 @@ bindsym $alt+f exec $fileManager
 #open calc (program written by Ali Raeisdanaei under /usr/bin)
 bindsym $alt+plus exec calc
 
-#open shutter 
-bindsym $alt+s exec shutter
+#open screen captcher 
+bindsym $alt+s exec xfce4-screenshooter
 
 #open productivity file
 bindsym $alt+p exec libreoffice --calc ~/Productivity/work_times.xlsx

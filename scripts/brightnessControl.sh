@@ -22,7 +22,7 @@ fi
 #echo -n $brightness
 
 MAX=150
-MIN=50
+MIN=20
 
 #function sets the brightness to the variable brightness
 set_brightness(){
