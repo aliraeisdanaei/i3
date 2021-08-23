@@ -23,7 +23,7 @@ make && sudo make install
 
 echo \n"Installing i3 dependencies"
 pacman -Sy clipit
-pacman -Sy xinput xorg-input
+pacman -Sy xinput xorg-input xorg-xwininfo
 pacman -Sy curl
 pacman -Sy xclip xdotool
 pacman -Sy feh

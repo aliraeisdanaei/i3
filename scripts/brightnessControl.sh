@@ -1,15 +1,11 @@
 #!/bin/bash
 
-#Program uses xrandr to find the connected monitor
-#increases or decrease brightness by set amount
-#stores the brightness in the current directory as .brightness
-#with no arguments it sets the brightness to that value
-
-
-
+#Changes the brightness of the nth connected monitor
+#argument one should be the number of connected monitor to change the brightness for
+#argument three should be + - to go down or up, low, full, or tmpOff
 
 #setting the connected monitor as a variable
-monitor=`xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1` 
+monitor=`./get_monitor.sh $1` 
 #echo -n $monitor
 
 #setting the current brightness
@@ -28,21 +24,21 @@ MIN=20
 set_brightness(){
     xrandr --output $monitor --brightness `echo "scale=1; $brightness/100" | bc`
    echo -n $brightness > ~/.config/i3/scripts/.brightness
-   echo -n file content
+   echo -n "file content "
     cat .brightness
 }
 
 
 #note there is no validation for a hard set, this value can be anything
-if [[ $1 == "set" ]]
+if [[ $2 == "set" ]]
     then
-        brightness=$2
+        brightness=$3
         set_brightness
        echo -n "Brightness of $monitor has been set to $brightness %."
         exit
 fi
 
-if [[ $1 == "full" ]]
+if [[ $2 == "full" ]]
     then
         brightness=$MAX
         set_brightness
@@ -50,7 +46,7 @@ if [[ $1 == "full" ]]
         exit
 fi
 
-if [[ $1 == "low" ]]
+if [[ $2 == "low" ]]
     then
         brightness=$MIN
         set_brightness
@@ -59,14 +55,14 @@ if [[ $1 == "low" ]]
 fi
 
 #this function does not set the brightness variable to 0, it just turns the brightness of screen to 0
-if [[ $1 == "tmpOff" ]]
+if [[ $2 == "tmpOff" ]]
     then
         xrandr --output $monitor --brightness 0 
         exit
 fi
 
 
-if [[ $1 == "+" ]]
+if [[ $2 == "+" ]]
     then 
         if [ $brightness -lt $MAX ]
             then    
@@ -79,7 +75,7 @@ if [[ $1 == "+" ]]
     exit 1
 fi
 
-if [[ $1 == "-" ]]
+if [[ $2 == "-" ]]
     then 
         if [ $brightness -gt $MIN ]
             then    
@@ -95,7 +91,3 @@ fi
 #by default with no arguments the brightness will be set to the .brightness value
 set_brightness
 exit
-
-
-
-

@@ -18,8 +18,6 @@ set $alt Mod1
 # Font for window titles. 
 font pango:monospace 10
 
-
-
 #font pango:DejaVu Sans Mono 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -32,8 +30,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 ## BORDERS                               ##
 ###########################################
 
-for_window [class="^.*"] border pixel 7
-
+for_window [class="^.*"] border pixel 5
 
 
 ###########################################
@@ -169,27 +166,38 @@ bindsym Control+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -
 ###########################################
 
 #the brightness is set on startup to the brightness it was previously
-exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh && $refresh_i3status
+exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh 1 && $refresh_i3status
 
 #to put asleep the entire screen
-bindsym $mod+$alt+z exec ~/.config/i3/scripts/brightnessControl.sh tmpOff
+bindsym $mod+$alt+z exec ~/.config/i3/scripts/brightnessControl.sh 1 tmpOff
 
 #to wake up the screen to full capacity 
-bindsym $mod+$alt+f exec ~/.config/i3/scripts/brightnessControl.sh full && $refresh_i3status
+bindsym $mod+$alt+f exec ~/.config/i3/scripts/brightnessControl.sh 1 full && $refresh_i3status
 
 #to set screen brightness to 100
-bindsym $mod+$alt+1 exec ~/.config/i3/scripts/brightnessControl.sh set 100 && $refresh_i3status
+bindsym $mod+$alt+1 exec ~/.config/i3/scripts/brightnessControl.sh 1 set 100 && $refresh_i3status
 
 #to set screen to lowest capacity
-bindsym $mod+$alt+l exec ~/.config/i3/scripts/brightnessControl.sh low && $refresh_i3status
+bindsym $mod+$alt+l exec ~/.config/i3/scripts/brightnessControl.sh 1 low && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightnessControl.sh + && $refresh_i3status
-bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightnessControl.sh - && $refresh_i3status
+bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightnessControl.sh 1 + && $refresh_i3status
+bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightnessControl.sh 1 - && $refresh_i3status
+bindsym Control+Right exec ~/.config/i3/scripts/brightnessControl.sh 1 + && $refresh_i3status
+bindsym Control+Left exec ~/.config/i3/scripts/brightnessControl.sh 1 - && $refresh_i3status
 
-#alternative key binding for raising and lowering brightness
-bindsym Control+Right exec ~/.config/i3/scripts/brightnessControl.sh + && $refresh_i3status
-bindsym Control+Left exec ~/.config/i3/scripts/brightnessControl.sh - && $refresh_i3status
+bindsym Control+Shift+Right exec ~/.config/i3/scripts/brightnessControl.sh 2 +
+bindsym Control+Shift+Left exec ~/.config/i3/scripts/brightnessControl.sh 2 -
 
+
+###########################################
+## HDMI CONNECTION                    ##
+###########################################
+
+bindsym $alt+h exec ~/.config/i3/scripts/connect_HDMI.sh left
+bindsym $alt+j exec ~/.config/i3/scripts/connect_HDMI.sh below
+bindsym $alt+k exec ~/.config/i3/scripts/connect_HDMI.sh above
+bindsym $alt+l exec ~/.config/i3/scripts/connect_HDMI.sh right
+bindsym $alt+o exec ~/.config/i3/scripts/connect_HDMI.sh off
 
 ###########################################
 ## WINDOW KILL & DRAG                    ##
@@ -414,8 +422,15 @@ exec_always --no-startup-id clipit
 
 #enable touchpad tap to click using xinput
 #(1) xinput lists (2) xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" (3) find the id of tapping and run below
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 321 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 320 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 321 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 338 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 339 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 339 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 340 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 341 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 342 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 343 1
 
 
 #enable automatic back and forth between workspaces
