@@ -426,7 +426,6 @@ exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 320
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 321 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 338 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 339 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 339 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 340 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 341 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 342 1

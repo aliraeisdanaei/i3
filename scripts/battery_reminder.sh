@@ -25,14 +25,14 @@ do
         if [ $battery_percent -le $CRITICAL_LOW ]
             then 
             # mplayer ~/.config/i3/scripts/sounds/WindowsXp_LowBattery_Sound.mp3
-            espeak -v de "Ihre Batterie ist kritisch schwach."    
+            # espeak -v de "Ihre Batterie ist kritisch schwach."    
             zenity --error --text '<span foreground="red" font="32" >\n\nBatteriestand ist KRITISCH!\nStecken Sie JETZT Ihren Computer ein!</span>' --title="Kritischer Batteriestand!" --width=800 --height=400
 
     
         elif [ $battery_percent -le $LOW ]
             then
             # mplayer ~/.config/i3/scripts/sounds/WindowsXp_LowBattery_Sound.mp3  
-            espeak -v de "Ihre Batterie ist schwach."  
+            # espeak -v de "Ihre Batterie ist schwach."  
             zenity --error --text '<span foreground="blue" font="32" >\n\nBatteriestand ist schwach!\nStecken Sie Ihren Computer ein!</span>' --title="Niedriger Batteriestand!" --width=800 --height=400
 
         fi
