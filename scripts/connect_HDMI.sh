@@ -2,11 +2,7 @@
 
 # connects HDM1 to above the first connected monitor above if no argument of the placement is given (left, right, below, above), turns off HDMI1 if off is the argument
 
-main_monitor=`./get_monitor.sh` # path for the scripts call
-if [ -z $main_monitor ]
-then
-    main_monitor=`~/.config/i3/scripts/get_monitor.sh` # path for the i3 config
-fi
+main_monitor=`~/.config/i3/scripts/get_monitor.sh` # path for the i3 config
 
 if [[ $1 == "" ]]
     then
