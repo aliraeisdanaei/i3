@@ -167,6 +167,7 @@ bindsym Control+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -
 
 #the brightness is set on startup to the brightness it was previously
 exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh 1 && $refresh_i3status
+exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
 
 #to put asleep the entire screen
 bindsym $mod+$alt+z exec ~/.config/i3/scripts/brightnessControl.sh 1 tmpOff
@@ -185,8 +186,8 @@ bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightnessControl.sh 1 -
 bindsym Control+Right exec ~/.config/i3/scripts/brightnessControl.sh 1 + && $refresh_i3status
 bindsym Control+Left exec ~/.config/i3/scripts/brightnessControl.sh 1 - && $refresh_i3status
 
-bindsym Control+Shift+Right exec ~/.config/i3/scripts/brightnessControl.sh 2 +
-bindsym Control+Shift+Left exec ~/.config/i3/scripts/brightnessControl.sh 2 -
+bindsym Control+Shift+Right exec ~/.config/i3/scripts/brightnessControl.sh 2 + && $refresh_i3status
+bindsym Control+Shift+Left exec ~/.config/i3/scripts/brightnessControl.sh 2 - && $refresh_i3status
 
 
 ###########################################
