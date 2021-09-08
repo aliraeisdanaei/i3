@@ -200,6 +200,11 @@ bindsym $alt+k exec ~/.config/i3/scripts/connect_HDMI.sh above ~/.config/i3/scri
 bindsym $alt+l exec ~/.config/i3/scripts/connect_HDMI.sh right ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
 bindsym $alt+o exec ~/.config/i3/scripts/connect_HDMI.sh off
 
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+j move workspace to output down
+bindsym $mod+Control+k move workspace to output up
+bindsym $mod+Control+l move workspace to output right
+
 ###########################################
 ## WINDOW KILL & DRAG                    ##
 ###########################################
@@ -464,8 +469,8 @@ bindsym $alt+shift+v exec code
 #open vim
 bindsym $alt+v exec $terminal $terminal_flag -e vim
 
-#open nnn
-bindsym $alt+n exec $terminal $terminal_flag -e nnn
+#open vifm
+bindsym $alt+shift+f exec $terminal $terminal_flag -e vifm
 
 #open vs code 
 bindsym $alt+c exec code
