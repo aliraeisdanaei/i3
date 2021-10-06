@@ -61,6 +61,31 @@ mode "Deutsch" {
 
 bindsym $mod+d mode "Deutsch"
 
+###########################################
+## Greek Math Keyboard                   ##
+###########################################
+
+mode "Math" {
+        bindsym --release Control+a exec echo -n α| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+b exec echo -n β| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+l exec echo -n λ| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+L exec echo -n Λ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+d exec echo -n δ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+d exec echo -n Δ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+e exec echo -n ε | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+o exec echo -n ω | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+o exec echo -n Ω | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+t exec echo -n θ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+m exec echo -n μ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+s exec echo -n ψ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+
+        # back to normal: Escape, mod or $mod+d
+        bindsym Escape mode "default"
+        bindsym $mod+m mode "default"
+        bindsym $mod mode "default"
+}
+bindsym $mod+m mode "Math"
 
 ###########################################
 ## Persian Keyboard                      ##
@@ -301,8 +326,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+y layout toggle split
 
-bindsym $mod+n exec echo on > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
-bindsym $mod+m exec echo off > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
+bindsym $mod+b exec echo on > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
+bindsym $mod+n exec echo off > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -420,6 +445,9 @@ bar{
 ## BACKGROUND & THINGS TO RUN ON STARTUP ##
 ###########################################
 
+# add compositor
+exec --no-startup-id compton
+
 #draws a background
 exec_always --no-startup-id ~/.config/i3/scripts/random_wallpaper.sh
 
@@ -506,20 +534,9 @@ bindsym $alt+s exec xfce4-screenshooter
 #open productivity file
 bindsym $alt+p exec libreoffice --calc ~/Productivity/work_times.xlsx
 
-
 ###########################################
 ## SHUTDOWN & REBOOT                     ##
 ###########################################
 
 bindsym $alt+$mod+r exec reboot
 bindsym $alt+$mod+s exec shutdown now
-
-
-
-
-
-
-
-
-
-
