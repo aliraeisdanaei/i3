@@ -249,6 +249,7 @@ bindsym $mod+w kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+g exec gdmenu_run
+bindsym $alt+space exec krunner
 
 ###########################################
 ## FOCUS & SPLITTING                     ##
