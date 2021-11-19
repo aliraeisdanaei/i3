@@ -287,10 +287,10 @@ bindsym Control+Shift+Left exec ~/.config/i3/scripts/brightnessControl.sh 2 - &&
 ## HDMI CONNECTION                    ##
 ###########################################
 
-bindsym $alt+h exec ~/.config/i3/scripts/connect_HDMI.sh left ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
-bindsym $alt+j exec ~/.config/i3/scripts/connect_HDMI.sh below ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
-bindsym $alt+k exec ~/.config/i3/scripts/connect_HDMI.sh above ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
-bindsym $alt+l exec ~/.config/i3/scripts/connect_HDMI.sh right ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
+bindsym $alt+h exec ~/.config/i3/scripts/connect_HDMI.sh left && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
+bindsym $alt+j exec ~/.config/i3/scripts/connect_HDMI.sh below && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
+bindsym $alt+k exec ~/.config/i3/scripts/connect_HDMI.sh above && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
+bindsym $alt+l exec ~/.config/i3/scripts/connect_HDMI.sh right && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
 bindsym $alt+o exec ~/.config/i3/scripts/connect_HDMI.sh off
 
 bindsym $mod+Control+h move workspace to output left
