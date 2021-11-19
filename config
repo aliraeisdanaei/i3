@@ -32,6 +32,40 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 for_window [class="^.*"] border pixel 5
 
+###########################################
+## GAPS                                  ##
+###########################################
+
+gaps inner 2
+gaps outer 4
+smart_gaps on
+# smart_borders on
+
+mode "Gaps" {
+    bindsym plus gaps inner current plus 2; gaps outer current plus 2
+    bindsym minus gaps inner current minus 2; gaps outer current minus 2
+    bindsym $alt+plus gaps inner all plus 2; gaps outer all plus 2
+    bindsym $alt+minus gaps inner all minus 1; gaps outer all minus 2
+    
+    bindsym n gaps inner current set 2; gaps outer current set 4
+    bindsym m gaps inner current set 8; gaps outer current set 16
+    bindsym s gaps inner current set 16; gaps outer current set 20
+    bindsym $alt+n gaps inner all set 2; gaps outer all set 4
+    bindsym $alt+m gaps inner all set 8; gaps outer all set 16
+    bindsym $alt+s gaps inner all set 16; gaps outer all set 20
+    bindsym 0 gaps inner current set 0; gaps outer current set 0
+    bindsym $alt+0 gaps inner all set 0; gaps outer all set 0
+    
+    # back to normal: Escape, mod or $mod+d
+    bindsym Escape mode "default"
+    bindsym Control+Escape mode "default"
+    bindsym Control+Shift+Escape mode "default"
+    bindsym $mod+F1 mode "default"
+    bindsym $mod+plus mode "default"
+    bindsym $mod mode "default"
+}
+bindsym $mod+F1 mode "Gaps"
+bindsym $mod+plus mode "Gaps"
 
 ###########################################
 ## German Keyboard                       ##
@@ -55,6 +89,8 @@ mode "Deutsch" {
 
         # back to normal: Escape, mod or $mod+d
         bindsym Escape mode "default"
+        bindsym Control+Escape mode "default"
+        bindsym Control+Shift+Escape mode "default"
         bindsym $mod+d mode "default"
         bindsym $mod mode "default"
 }
@@ -73,19 +109,49 @@ mode "Math" {
         bindsym --release Control+d exec echo -n δ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+Shift+d exec echo -n Δ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+e exec echo -n ε | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+e exec echo -n ∈ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+o exec echo -n ω | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+Shift+o exec echo -n Ω | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+t exec echo -n θ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+m exec echo -n μ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+s exec echo -n ψ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+s exec echo -n ⊂ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release s exec echo -n ⊆ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
 
         # back to normal: Escape, mod or $mod+d
         bindsym Escape mode "default"
+        bindsym Control+Escape mode "default"
+        bindsym Control+Shift+Escape mode "default"
+        bindsym $mod+Shift+m mode "default"
         bindsym $mod+m mode "default"
         bindsym $mod mode "default"
 }
 bindsym $mod+m mode "Math"
+
+###########################################
+## Predicate Keyboard                    ##
+###########################################
+
+mode "Predicate" {
+        bindsym --release a exec echo -n ∧| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release o exec echo -n ∨| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release n exec echo -n ¬| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release i exec echo -n →| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release e exec echo -n ≡| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+e exec echo -n ∃| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Shift+a exec echo -n ∀| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+
+
+        # back to normal: Escape, mod or $mod+d
+        bindsym Escape mode "default"
+        bindsym Control+Escape mode "default"
+        bindsym Control+Shift+Escape mode "default"
+        bindsym $mod+m mode "default"
+        bindsym $mod+Shift+m mode "default"
+        bindsym $mod mode "default"
+}
+bindsym $mod+Shift+m mode "Predicate"
 
 ###########################################
 ## Persian Keyboard                      ##
@@ -156,6 +222,8 @@ mode "Persian" {
 
         # back to normal: Escape, mod or $mod+p
         bindsym Escape mode "default"
+        bindsym Control+Escape mode "default"
+        bindsym Control+Shift+Escape mode "default"
         bindsym $mod+p mode "default"
         bindsym $mod mode "default"
 }
@@ -296,7 +364,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -322,13 +390,17 @@ for_window [class=.*] exec test `cat ~/.config/i3/scripts/.sensible_on` = "on" &
 #for_window [workspace=$ws10] layout stacking
 
 
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+y layout toggle split
 
-bindsym $mod+b exec echo on > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
-bindsym $mod+n exec echo off > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
+# always start the autotiling
+exec_always --no-startup-id autotiling
+
+# bindsym $mod+b exec echo on > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
+# bindsym $mod+n exec echo off > ~/.config/i3/scripts/.sensible_on && $refresh_i3status
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -460,8 +532,6 @@ exec_always --no-startup-id clipit
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 320 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 321 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 338 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 339 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 340 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 341 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 342 1
 exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 343 1

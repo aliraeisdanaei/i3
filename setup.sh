@@ -27,6 +27,7 @@ pacman -Sy xinput xorg-input xorg-xwininfo
 pacman -Sy curl
 pacman -Sy xclip xdotool
 pacman -Sy feh
+pacman -Sy picom
 
 echo \n\n"Getting vim configs"
 cd ~/.config
@@ -39,7 +40,7 @@ chmod +x ./setup.sh && ./setup.sh
 
 echo \n\n"Installing applications."
 pacman -Sy vim gvim
-pacman -Sy nnn 
+pacman -Sy vifm
 pacman -Sy code 
 pacman -Sy mpv moc
 pacman -Sy fish
