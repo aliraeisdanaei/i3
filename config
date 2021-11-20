@@ -295,15 +295,15 @@ bindsym Control+Shift+Right exec ~/.config/i3/scripts/brightnessControl.sh 2 + &
 bindsym Control+Shift+Left exec ~/.config/i3/scripts/brightnessControl.sh 2 - && $refresh_i3status
 
 #red shift
-exec_always redshift -l 40.46:-80.62
+exec_always redshift -l 40.46:-80.62 -t 5000:3000
 
 # redshift modes
 bindsym $mod+n mode "$mode_redshift"
 set $mode_redshift (a)uto, (r)eset, (o)ff, (2)500K, (3)000K, (4)000K, (5)000K
 set $kill_redshift pkill -9 redshift;
 mode "$mode_redshift" {
-    # bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
-    bindsym a exec --no-startup-id "$kill_redshift redshift -l 40.46:-80.62", mode "default"
+    bindsym a exec --no-startup-id "$kill_redshift redshift -l 40.46:-80.62 -t 5000:3000", mode "default"
+    # bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 5000:3000", mode "default"
     bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
     bindsym o exec pkill -9 redshift && exec ~/.config/i3/scripts/brightnessControl.sh 1 && exec ~/.config/i3/scripts/brightnessControl.sh 2, mode "default"
 
