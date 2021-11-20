@@ -28,6 +28,8 @@ pacman -Sy curl
 pacman -Sy xclip xdotool
 pacman -Sy feh
 pacman -Sy picom
+pacman -Sy redshift
+pip install autotiling
 
 echo \n\n"Getting vim configs"
 cd ~/.config
