@@ -25,11 +25,22 @@ echo \n"Installing i3 dependencies"
 pacman -Sy clipit
 pacman -Sy xinput xorg-input xorg-xwininfo
 pacman -Sy curl
+pacman -Sy nodejs npm
 pacman -Sy xclip xdotool
 pacman -Sy feh
 pacman -Sy picom
 pacman -Sy redshift
 pip install autotiling
+
+echo \n\n"Installing applications."
+pacman -Sy vim gvim nvim
+pacman -Sy vifm
+pacman -Sy code 
+pacman -Sy mpv moc
+pacman -Sy fish
+pacman -Sy git
+pacman -Sy neofetch
+pacman -Sy htop
 
 echo \n\n"Getting vim configs"
 cd ~/.config
@@ -45,18 +56,8 @@ cd ~/.config/nvim
 echo \n"Setting up the plugin installer."
 chmod +x ./setup.sh && chmod +x ./setup2.sh && ./setup.sh
 
-echo \n\n"Installing applications."
-pacman -Sy vim gvim
-pacman -Sy vifm
-pacman -Sy code 
-pacman -Sy mpv moc
-pacman -Sy fish
-pacman -Sy git
-pacman -Sy neofetch
-
 
 echo \n"The base applications of Kde that are used are not included -- they have been assumed to have been shipped."
-
 
 echo "Thank you for setting things up with us."
 echo "Leben Sie wohl."
