@@ -23,6 +23,7 @@ make && sudo make install
 
 echo \n"Installing i3 dependencies"
 pacman -Sy clipit
+pacman -Sy mplayer
 pacman -Sy xinput xorg-input xorg-xwininfo
 pacman -Sy curl
 pacman -Sy nodejs npm
