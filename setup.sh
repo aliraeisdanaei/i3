@@ -35,10 +35,15 @@ echo \n\n"Getting vim configs"
 cd ~/.config
 git clone https://github.com/aliraeisdanaei/vim
 cd ~/.config/vim
-
 echo \n"Setting up the plugin installer."
 chmod +x ./setup.sh && ./setup.sh
 
+echo \n\n"Getting nvim configs"
+cd ~/.config
+git clone https://github.com/aliraeisdanaei/nvim
+cd ~/.config/nvim
+echo \n"Setting up the plugin installer."
+chmod +x ./setup.sh && chmod +x ./setup2.sh && ./setup.sh
 
 echo \n\n"Installing applications."
 pacman -Sy vim gvim
