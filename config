@@ -20,11 +20,6 @@ font pango:monospace 10
 
 #font pango:DejaVu Sans Mono 10
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 ###########################################
 ## BORDERS                               ##
@@ -127,6 +122,8 @@ mode "Math" {
         bindsym --release Control+t exec echo -n θ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+m exec echo -n μ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Control+s exec echo -n ψ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+f exec echo -n φ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+        bindsym --release Control+Shift+f exec echo -n Φ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release Shift+s exec echo -n ⊂ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
         bindsym --release s exec echo -n ⊆ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 
@@ -244,14 +241,6 @@ bindsym $mod+p mode "Persian"
 
 
 ###########################################
-## Network Manager                       ##
-###########################################
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec_always --no-startup-id nm-applet
-
-
-###########################################
 ## VOLUME                                ##
 ###########################################
 
@@ -355,6 +344,7 @@ bindsym $mod+w kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+g exec gdmenu_run
+bindsym $mod+shift+g exec i3-dmenu-desktop
 bindsym $alt+space exec krunner
 
 ###########################################
@@ -420,10 +410,6 @@ bindsym $mod+space focus mode_toggle
 
 # focus the child container
 #bindsym $mod+d focus child
-
-# sensible split
-# only performs sensible split if the file exists
-for_window [class=.*] exec test `cat ~/.config/i3/scripts/.sensible_on` = "on" && ~/.config/i3/scripts/sensible.sh
 
 ###########################################
 ## CONTAINER LAYOUT                      ##
@@ -504,14 +490,14 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ## RELOAD CONFIG                         ##
 ###########################################
 
-set $kill_commands exec ~/.config/i3/scripts/killer.sh; 
+set $kill_commands ~/.config/i3/scripts/killer.sh; 
 
 # reload the configuration file and kill all background scripts
-bindsym $mod+Shift+c $kill_commands reload; 
+bindsym $mod+Shift+c exec $kill_commands reload; 
 # restart i3 inplace and kill all background scripts
-bindsym $mod+Shift+r $kill_commands restart; 
+bindsym $mod+Shift+r exec $kill_commands restart; 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "$kill_commands i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 
 ###########################################
@@ -554,10 +540,7 @@ bindsym $mod+r mode "resize"
 #set $theme tinyc
 #exec ln -f -t ~/.config/polybar ~/.config/polybar/polybar-themes/$theme/*
 
-
-#exec_always --no-startup-id ~/.config/polybar/myBars/launch.sh
-#exec_always --no-startup-id ~/.config/polybar/polybar-themes/$theme/launch.sh
-
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 bar{
         status_command i3status
@@ -567,6 +550,11 @@ bar{
 
 }
 
+###########################################
+## APPLETS & WIDGETS                     ##
+###########################################
+exec_always --no-startup-id ~/.config/i3/scripts/tray.sh
+
 
 ###########################################
 ## BACKGROUND & THINGS TO RUN ON STARTUP ##
@@ -575,18 +563,9 @@ bar{
 #draws a background
 exec_always --no-startup-id ~/.config/i3/scripts/random_wallpaper.sh
 
-#adding clipboard automatically
-set $kill_clipit killall clipit;
-exec_always --no-startup-id "$kill_clipit clipit"
-
 #enable touchpad tap to click using xinput
 #(1) xinput lists (2) xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" (3) find the id of tapping and run below
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 320 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 321 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 338 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 341 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 342 1
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" 343 1
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" `xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" | grep "Tap" | cut -d "(" -f2 | cut -d ")" -f1 | head -1` 1
 
 
 #enable automatic back and forth between workspaces
@@ -663,24 +642,21 @@ bindsym $alt+y exec $browser https://www.youtube.com
 #open telegram
 bindsym $alt+t exec telegram-desktop
 
-#open gedit
-bindsym $alt+g exec gedit
-
 #open .config/i3 in vim & terminal
-bindsym $alt+i exec $terminal $terminal_flag -e nvim ~/.config/i3
+bindsym $alt+i exec $terminal $terminal_flag -e code ~/.config/i3
 bindsym $mod+i exec $terminal $terminal_flag --workdir ~/.config/i3
 
 #open file manager
 bindsym $alt+f exec $fileManager
 
-#open calc (program written by Ali Raeisdanaei under /usr/bin)
-bindsym $alt+plus exec calc
-
 #open screen captcher 
 bindsym $alt+s exec xfce4-screenshooter
 
-#open productivity file
-bindsym $alt+p exec libreoffice --calc ~/Productivity/work_times.xlsx
+#open pavucontrol
+bindsym $alt+p exec pavucontrol
+
+#email client
+bindsym $alt+e exec thunderbird
 
 ###########################################
 ## SHUTDOWN & REBOOT                     ##
