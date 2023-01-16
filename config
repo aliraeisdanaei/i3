@@ -183,7 +183,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+w kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec i3-dmenu-desktop
+bindsym $mod+d exec i3-dmenu-desktop
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -424,6 +424,9 @@ bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 
 #battery reminder
 exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
+
+# gnome daemon
+exec_always --no-startup-id gnome-settings-daemon
 
 ###########################################
 ## COMPOSITOR                            ##
