@@ -75,169 +75,14 @@ bindsym $mod+F1 mode "Gaps"
 bindsym $mod+plus mode "Gaps"
 
 ###########################################
-## German Keyboard                       ##
+## Keyboard Layout                       ##
 ###########################################
 
-# the way that keyboards work is we use bindings to trigger a copy of certain letters to a clipboard
-# and then immediately pasting it
+# to see the full layouts
+# localectl list-x11-keymap-layouts
 
-mode "Deutsch" {
-        bindsym --release Control+a exec echo -n ä| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+a exec echo -n Ä | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-        bindsym --release Control+u exec echo -n ü | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+u exec echo -n Ü | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-        bindsym --release Control+o exec echo -n ö | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+o exec echo -n Ö | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-        bindsym --release Control+s exec echo -n ß | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-
-        # back to normal: Escape, mod or $mod+d
-        bindsym Escape mode "default"
-        bindsym Control+Escape mode "default"
-        bindsym Control+Shift+Escape mode "default"
-        bindsym $mod+d mode "default"
-        bindsym $mod mode "default"
-}
-
-bindsym $mod+d mode "Deutsch"
-
-###########################################
-## Greek Math Keyboard                   ##
-###########################################
-
-mode "Math" {
-        bindsym --release Control+a exec echo -n α| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+b exec echo -n β| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+l exec echo -n λ| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+L exec echo -n Λ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+d exec echo -n δ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+d exec echo -n Δ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+e exec echo -n ε | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+e exec echo -n ∈ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+o exec echo -n ω | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+o exec echo -n Ω | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+t exec echo -n θ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+m exec echo -n μ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+s exec echo -n ψ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+f exec echo -n φ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+f exec echo -n Φ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+s exec echo -n ⊂ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release s exec echo -n ⊆ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-
-        # back to normal: Escape, mod or $mod+d
-        bindsym Escape mode "default"
-        bindsym Control+Escape mode "default"
-        bindsym Control+Shift+Escape mode "default"
-        bindsym $mod+Shift+m mode "default"
-        bindsym $mod+m mode "default"
-        bindsym $mod mode "default"
-}
-bindsym $mod+m mode "Math"
-
-###########################################
-## Predicate Keyboard                    ##
-###########################################
-
-mode "Predicate" {
-        bindsym --release a exec echo -n ∧| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release o exec echo -n ∨| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release n exec echo -n ¬| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release i exec echo -n →| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release e exec echo -n ≡| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+e exec echo -n ∃| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+a exec echo -n ∀| xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-
-        # back to normal: Escape, mod or $mod+d
-        bindsym Escape mode "default"
-        bindsym Control+Escape mode "default"
-        bindsym Control+Shift+Escape mode "default"
-        bindsym $mod+m mode "default"
-        bindsym $mod+Shift+m mode "default"
-        bindsym $mod mode "default"
-}
-bindsym $mod+Shift+m mode "Predicate"
-
-###########################################
-## Persian Keyboard                      ##
-###########################################
-
-# Persian keyboards can be really unintuitive, this is a personal layout that makes intuitive sense based on the sounds of the keyboards.
-# the way that keyboards work is we use bindings to trigger a copy of certain letters to a clipboard
-# and then immediately pasting it
-
-mode "Persian" {
-        # the general logic behind the keyboard is that the sounds are the same with the english keyboard.
-        # duplicate letters for sounds have like the 's' letter have keybindings of Shift, Ctrl, then Ctrl+Shift in the order of the persian alphabet
-        # non existent letters such as 'sh' 'kh' are all shift
-
-        # these keybindings are loosely based on this website https://www.lexilogos.com/keyboard/persian.htm
-
-        bindsym --release a exec echo -n ا | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release b exec echo -n ب | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release p exec echo -n پ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release t exec echo -n ت | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+Shift+s exec echo -n ث | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release j exec echo -n ج | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+c exec echo -n چ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
-        # 'ه' is more common so the regular h is reserved for that
-        bindsym --release Shift+h exec echo -n ح | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
-        bindsym --release Shift+k exec echo -n خ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release d exec echo -n د | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
-        #this 'z' is less common so it takes the shift
-        bindsym --release Shift+z exec echo -n ذ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
-        bindsym --release r exec echo -n ر | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release z exec echo -n ز | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+z exec echo -n ژ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release s exec echo -n س | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+s exec echo -n ش | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+s exec echo -n ص | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Control+z exec echo -n ض | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+t exec echo -n ط | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+a exec echo -n ع | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release Shift+q exec echo -n غ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release f exec echo -n ف | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release q exec echo -n ق | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
-        # double key binding since there are two English letters 
-        bindsym --release k exec echo -n ک | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release c exec echo -n ک | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-        bindsym --release g exec echo -n گ | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release l exec echo -n ل | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release m exec echo -n م | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release n exec echo -n ن | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
-        #double keybinding since there are two English letters
-        bindsym --release v exec echo -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release o exec echo -n و | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        
-        # double key binding
-        bindsym --release h exec echo -n ه | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release e exec echo -n ه | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-        # double key binding since there are two English letters 
-        bindsym --release y exec echo -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-        bindsym --release i exec echo -n ی | xclip -selection c;exec --no-startup-id xdotool key --clearmodifiers ctrl+v
-
-
-        # back to normal: Escape, mod or $mod+p
-        bindsym Escape mode "default"
-        bindsym Control+Escape mode "default"
-        bindsym Control+Shift+Escape mode "default"
-        bindsym $mod+p mode "default"
-        bindsym $mod mode "default"
-}
-
-bindsym $mod+p mode "Persian"
+exec_always "setxkbmap -layout us,de,ir,fr"
+exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
 
 
 ###########################################
@@ -289,6 +134,7 @@ bindsym Control+Shift+Left exec ~/.config/i3/scripts/brightnessControl.sh 2 - &&
 
 #red shift
 set $kill_redshift pkill -9 redshift; ~/.config/i3/scripts/brightnessControl.sh 1; ~/.config/i3/scripts/brightnessControl.sh 2;
+# set $kill_redshift ~/.config/i3/scripts/redshift_killer.sh
 exec_always "$kill_redshift redshift -l 40.46:-80.62 -t 5000:3000"
 
 # redshift modes
