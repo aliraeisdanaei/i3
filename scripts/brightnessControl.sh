@@ -10,7 +10,8 @@ scripts_folder=$HOME/.config/i3/scripts
 monitor=`$scripts_folder/get_monitor.sh $1`
 
 brightness_file=.brightness_$1
-brightness_fullpath="$HOME/$brightness_file"
+brightness_fullpath="$scripts_folder/$brightness_file"
+echo $brighness_fullpath
 
 #setting the current brightness
 brightness=`cat $brightness_fullpath` || (echo 100 > $brightness_fullpath && brightness=100)
