@@ -1,0 +1,141 @@
+To change wifi:
+		nmtui
+        nm-applet
+
+To view battery:
+		acpi
+Music 
+		mplayer
+		mocp
+Browser
+		links
+		w3m followed by link
+		browsh
+To change icons on dolphin:
+		qt5ct
+Mounting a usb
+		fdisk -l or sudo fdisk -l
+		mount /dev/sda /mnt/usb
+		umount /mnt/usb		
+	this command may also help
+		lsusb
+		tail -f /var/log/syslog
+		dmesg
+	if you get an fs error it might be that you have a partition on the drive, just add a 1 after the name of it 
+	to see your disk use
+		lsblk
+Sorting on unmounted disks
+    sudo fatsort /dev/sdb1
+    
+        if you get SortFileSystem: FATs don't match! Please repair file system!
+            run sudo dosfsck -t -a -w /dev/sdb1
+
+            killing it when it the outputs stop seem to solve the problem
+HDMI connection
+	xrandr to see the output
+	xrandr --output HDMI1 --auto --right-of eDP1
+	pavucontrol for output to HDM1i
+    
+    xrandr --output HDMI1 --off
+Other programs installed
+	neofetch --> system info in cool way
+	stacer --> system cleaner HTOP gui
+ssh
+	to see the status of the ssh
+		sudo systemctl status ssh
+
+	To prevent the service from statrying automatically at boot time, use
+	sudo systemctl disable ssh.service
+	
+	To stop currently running one, use
+		sudo systemctl stop ssh.service
+		sudo systemctl start ssh.service
+
+To start Apache, the command would be:
+	sudo systemctl start apache2
+
+To stop Apache, the command would be:
+	sudo systemctl stop apache2
+
+To restart the Apache server, issue the command:
+	sudo systemctl restart apache2
+
+Vim Plugins 
+    facilitates the process
+    https://github.com/junegunn/vim-plug
+
+
+To clear cache
+    sudo sysctl vm.drop_caches=1
+    sudo sysctl vm.drop_caches=2
+    sudo sysctl vm.drop_caches=3
+
+To burn a file into disk
+    sudo dd if=file of=/dev/sda bs=1024k status=progress 
+
+Manjaro's beautiful gui package manager
+    pamac-manager
+
+VLC
+    vlc -V aa video_url
+    vlc -v aa video_url # one of these does ascii
+
+GPG
+    guide
+        https://nickjanetakis.com/blog/creating-and-managing-a-gpg-key-pair
+
+    to encrypt file
+        gpg -c file
+    to decrypt file
+        gpg -d file
+        gpg -d file > output_file
+
+Update System
+    sudo pacman -Syy # updates the database
+    sudo pacman -Su # update the system
+
+Fatsort
+    some usbs may be corrupted
+    
+    unmount
+    
+    sudo fsck /dev/sda1
+    sudo fatsort /dev/sda1
+
+Set date
+    sudo date -s "14 Sep 2021 23:18:00"
+
+Trans-shell
+    trans 
+        --brief
+        [en:de]
+        
+Openssl
+    openssl aes-256-cbc -e -in f1 -out f2
+    openssl aes-256-cbc -d -in f2 -out f1
+
+Set Up Multiple Audio Outputs
+    paprefs
+        simultaneous output
+        then 
+        pavucontrol -k # to kill the session
+        then restart pavucontrol
+
+    chose virtual output devices from the list of outputs
+
+Pacman Sync Issue
+error: failed to synchronize all databases (unable to lock database)
+    rm /var/lib/pacman/db.lck
+
+Gnome Animations Set and Reset
+    gsettings set org.gnome.desktop.interface enable-animations false
+
+    To reset to default:
+
+    gsettings reset org.gnome.desktop.interface enable-animations
+
+https://askubuntu.com/questions/25022/how-to-enable-boot-messages-to-be-printed-on-screen-during-boot-up
+How to enable boot messages to be printed on screen during boot up?
+sudo vim /etc/default/grub
+Find the line starting with GRUB_CMDLINE_LINUX_DEFAULT and remove the parameters quiet and splash
+sudo update-grub
