@@ -116,6 +116,7 @@ bindsym $mod+F2 mode "$mode_picom"
 # localectl list-x11-keymap-layouts
 exec_always "setxkbmap -layout us,de,ir,fr"
 exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
+# exec_always "setxkbmap -layout us,ua -option 'grp:alt_space_toggle'"
 
 ###########################################
 ## VOLUME                                ##
