@@ -366,51 +366,21 @@ bindsym $mod+r mode "resize"
 ###########################################
 ## STATUS BAR                            ##
 ###########################################
-
 #link the config file to the defult location laucnh.sh will read from
 #set $theme tinyc
 #exec ln -f -t ~/.config/polybar ~/.config/polybar/polybar-themes/$theme/*
-
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
-
 bar{
         status_command i3status
         font pango:Inconsolata 14
         position left
         separator_symbol |
-
 }
 
 ###########################################
 ## APPLETS & WIDGETS                     ##
 ###########################################
 exec_always --no-startup-id ~/.config/i3/scripts/tray.sh
-
-###########################################
-## BACKGROUND & THINGS TO RUN ON STARTUP ##
-###########################################
-
-#draws a background
-exec_always --no-startup-id ~/.config/i3/scripts/random_wallpaper.sh
-
-#enable touchpad tap to click using xinput
-#(1) xinput lists (2) xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" (3) find the id of tapping and run below
-exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" `xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" | grep "Tap" | cut -d "(" -f2 | cut -d ")" -f1 | head -1` 1
-
-
-#enable automatic back and forth between workspaces
-workspace_auto_back_and_forth yes
-
-#20_20_20 Timer & keybinding to kill it
-exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh;
-bindsym $mod+Shift+BackSpace exec --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh && $refresh_i3status
-bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh && $refresh_i3status
-
-#battery reminder
-exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
-
-# gnome daemon
-# exec_always --no-startup-id gnome-settings-daemon
 
 ###########################################
 ## BINDINGS FOR PRORGAMS                 ##
@@ -464,6 +434,30 @@ bindsym $alt+p exec pavucontrol
 
 #email client
 bindsym $alt+e exec thunderbird
+
+###########################################
+## BACKGROUND & THINGS TO RUN ON STARTUP ##
+###########################################
+#draws a background
+exec_always --no-startup-id ~/.config/i3/scripts/random_wallpaper.sh
+
+#enable touchpad tap to click using xinput
+#(1) xinput lists (2) xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" (3) find the id of tapping and run below
+exec_always --no-startup-id xinput set-prop "SYNA7DB5:00 06CB:7DB7 Touchpad" `xinput list-props "SYNA7DB5:00 06CB:7DB7 Touchpad" | grep "Tap" | cut -d "(" -f2 | cut -d ")" -f1 | head -1` 1
+
+#enable automatic back and forth between workspaces
+workspace_auto_back_and_forth yes
+
+#20_20_20 Timer & keybinding to kill it
+exec_always --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh;
+bindsym $mod+Shift+BackSpace exec --no-startup-id ~/.config/i3/scripts/breakTimer/20_20_20_Timer.sh && $refresh_i3status
+bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh && $refresh_i3status
+
+#battery reminder
+exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
+
+# gnome daemon
+# exec_always --no-startup-id gnome-settings-daemon
 
 ###########################################
 ## RELOAD CONFIG                         ##
