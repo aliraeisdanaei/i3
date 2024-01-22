@@ -385,9 +385,9 @@ bindsym $mod+r mode "resize"
 ## BINDINGS FOR PRORGAMS                 ##
 ###########################################
 
-set $terminal konsole
+set $terminal gnome-terminal
 set $terminal_flag --hide-menubar
-set $fileManager dolphin
+set $fileManager nautilus
 set $browser brave
 
 # start a terminal
@@ -437,6 +437,10 @@ bindsym $alt+e exec thunderbird
 ###########################################
 ## BACKGROUND & THINGS TO RUN ON STARTUP ##
 ###########################################
+
+# enables dark mode with gnome
+# exec_always --no-startup-id /usr/lib/gsd-xsettings
+
 #draws a background
 exec_always --no-startup-id ~/.config/i3/scripts/random_wallpaper.sh
 
@@ -456,7 +460,7 @@ bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
 
 # gnome daemon
-# exec_always --no-startup-id gnome-settings-daemon
+exec_always --no-startup-id gnome-settings-daemon
 
 ###########################################
 ## RELOAD CONFIG                         ##
