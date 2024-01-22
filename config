@@ -3,34 +3,27 @@
 ## WRITTEN BY ALI RAEISDANAEI 
 ## 
 
-
 ###########################################
 ## MOD KEY VARIABLES                     ##
 ###########################################
-
 set $mod Mod4
 set $alt Mod1
 
 ###########################################
 ## FONT                                  ##
 ###########################################
-
 # Font for window titles. 
 font pango:monospace 10
-
 #font pango:DejaVu Sans Mono 10
-
 
 ###########################################
 ## BORDERS                               ##
 ###########################################
-
 for_window [class="^.*"] border pixel 5
 
 ###########################################
 ## GAPS                                  ##
 ###########################################
-
 gaps inner 2
 gaps outer 4
 # smart_gaps on
@@ -75,20 +68,39 @@ bindsym $mod+F1 mode "Gaps"
 bindsym $mod+plus mode "Gaps"
 
 ###########################################
+## COMPOSITOR                            ##
+###########################################
+# add compositor
+set $kill_picom killall picom;
+set $normal_opacity picom --inactive-opacity 0.9 --active-opacity 1.0;
+exec_always --no-startup-id "$kill_picom $normal_opacity" 
+
+# picom modes
+set $mode_picom picom (f)ull_opacity, (n)ormal_opacity, (a)ctive_opacity (s)uper_opacity
+
+mode "$mode_picom" {
+    bindsym f exec --no-startup-id "$kill_picom picom --inactive-opacity 1.0 --active-opacity 1.0", mode "default"
+    bindsym n exec --no-startup-id "$kill_picom picom --inactive-opacity 0.9 --active-opacity 1.0", mode "default"
+    bindsym a exec --no-startup-id "$kill_picom picom --inactive-opacity 0.9 --active-opacity 0.9", mode "default"
+    bindsym s exec --no-startup-id "$kill_picom picom --inactive-opacity 0.8 --active-opacity 0.9", mode "default"
+ 
+    bindsym Return mode "default"
+    bindsym $mod+F2 mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+F2 mode "$mode_picom"
+
+###########################################
 ## Keyboard Layout                       ##
 ###########################################
-
 # to see the full layouts
 # localectl list-x11-keymap-layouts
-
 exec_always "setxkbmap -layout us,de,ir,fr"
 exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
-
 
 ###########################################
 ## VOLUME                                ##
 ###########################################
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -103,37 +115,37 @@ bindsym Control+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -
 ###########################################
 ## SCREEN BRIGHTNESS                     ##
 ###########################################
+set $control_brightness ~/.config/i3/scripts/brightnessControl.sh 
 
 #the brightness is set on startup to the brightness it was previously
-exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh 1 && $refresh_i3status
-exec --no-startup-id ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
+exec --no-startup-id $control_brightness 1 && $refresh_i3status
+exec --no-startup-id $control_brightness 2 && $refresh_i3status
 
 #to put asleep the entire screen
-bindsym $mod+$alt+z exec ~/.config/i3/scripts/brightnessControl.sh 1 tmpOff
+bindsym $mod+$alt+z exec $control_brightness 1 tmpOff
 
 #to wake up the screen to full capacity 
-bindsym $mod+$alt+f exec ~/.config/i3/scripts/brightnessControl.sh 1 full && $refresh_i3status
+bindsym $mod+$alt+f exec $control_brightness 1 full && $refresh_i3status
 
 #to set screen brightness to 100
-bindsym $mod+$alt+1 exec ~/.config/i3/scripts/brightnessControl.sh 1 set 100 && $refresh_i3status
+bindsym $mod+$alt+1 exec $control_brightness 1 set 100 && $refresh_i3status
 
 #to set screen to lowest capacity
-bindsym $mod+$alt+l exec ~/.config/i3/scripts/brightnessControl.sh 1 low && $refresh_i3status
+bindsym $mod+$alt+l exec $control_brightness 1 low && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightnessControl.sh 1 + && $refresh_i3status
-bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightnessControl.sh 1 - && $refresh_i3status
-bindsym Control+Right exec ~/.config/i3/scripts/brightnessControl.sh 1 + && $refresh_i3status
-bindsym Control+Left exec ~/.config/i3/scripts/brightnessControl.sh 1 - && $refresh_i3status
+bindsym XF86MonBrightnessUp exec $control_brightness 1 + && $refresh_i3status
+bindsym XF86MonBrightnessDown exec $control_brightness 1 - && $refresh_i3status
+bindsym Control+Right exec $control_brightness 1 + && $refresh_i3status
+bindsym Control+Left exec $control_brightness 1 - && $refresh_i3status
 
-bindsym Control+Shift+Right exec ~/.config/i3/scripts/brightnessControl.sh 2 + && $refresh_i3status
-bindsym Control+Shift+Left exec ~/.config/i3/scripts/brightnessControl.sh 2 - && $refresh_i3status
+bindsym Control+Shift+Right exec $control_brightness 2 + && $refresh_i3status
+bindsym Control+Shift+Left exec $control_brightness 2 - && $refresh_i3status
 
 ###########################################
 ## RED SHIFT                             ##
 ###########################################
-
 #red shift
-set $kill_redshift pkill -9 redshift; ~/.config/i3/scripts/brightnessControl.sh 1; ~/.config/i3/scripts/brightnessControl.sh 2;
+set $kill_redshift pkill -9 redshift; $control_brightness 1; $control_brightness 2;
 # set $kill_redshift ~/.config/i3/scripts/redshift_killer.sh
 exec_always "$kill_redshift redshift -l 40.46:-80.62 -t 5000:3000"
 
@@ -159,12 +171,13 @@ mode "$mode_redshift" {
 ###########################################
 ## HDMI CONNECTION                       ##
 ###########################################
+set $connect_HDMI ~/.config/i3/scripts/connect_HDMI.sh 
 
-bindsym $alt+h exec ~/.config/i3/scripts/connect_HDMI.sh left && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
-bindsym $alt+j exec ~/.config/i3/scripts/connect_HDMI.sh below && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
-bindsym $alt+k exec ~/.config/i3/scripts/connect_HDMI.sh above && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
-bindsym $alt+l exec ~/.config/i3/scripts/connect_HDMI.sh right && ~/.config/i3/scripts/brightnessControl.sh 2 && $refresh_i3status
-bindsym $alt+o exec ~/.config/i3/scripts/connect_HDMI.sh off
+bindsym $alt+h exec $connect_HDMI left && $control_brightness 2 && $refresh_i3status
+bindsym $alt+j exec $connect_HDMI below && $control_brightness 2 && $refresh_i3status
+bindsym $alt+k exec $connect_HDMI above && $control_brightness 2 && $refresh_i3status
+bindsym $alt+l exec $connect_HDMI right && $control_brightness 2 && $refresh_i3status
+bindsym $alt+o exec $connect_HDMI off
 
 bindsym $mod+Control+h move workspace to output left
 bindsym $mod+Control+j move workspace to output down
@@ -263,17 +276,6 @@ bindsym $mod+space focus mode_toggle
 
 #always start on stacking layout as default
 #for_window [workspace=$ws1] layout stacking
-#for_window [workspace=$ws2] layout stacking
-#for_window [workspace=$ws3] layout stacking
-#for_window [workspace=$ws4] layout stacking
-#for_window [workspace=$ws5] layout stacking
-#for_window [workspace=$ws6] layout stacking
-#for_window [workspace=$ws7] layout stacking
-#for_window [workspace=$ws8] layout stacking
-#for_window [workspace=$ws9] layout stacking
-#for_window [workspace=$ws10] layout stacking
-
-
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -331,21 +333,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-
-###########################################
-## RELOAD CONFIG                         ##
-###########################################
-
-set $kill_commands ~/.config/i3/scripts/killer.sh; 
-
-# reload the configuration file and kill all background scripts
-bindsym $mod+Shift+c exec $kill_commands reload; 
-# restart i3 inplace and kill all background scripts
-bindsym $mod+Shift+r exec $kill_commands restart; 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "$kill_commands i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-
 ###########################################
 ## RESIZE                                ##
 ###########################################
@@ -374,9 +361,7 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
-
 
 ###########################################
 ## STATUS BAR                            ##
@@ -391,7 +376,7 @@ bindsym $mod+r mode "resize"
 bar{
         status_command i3status
         font pango:Inconsolata 14
-        position top
+        position left
         separator_symbol |
 
 }
@@ -400,7 +385,6 @@ bar{
 ## APPLETS & WIDGETS                     ##
 ###########################################
 exec_always --no-startup-id ~/.config/i3/scripts/tray.sh
-
 
 ###########################################
 ## BACKGROUND & THINGS TO RUN ON STARTUP ##
@@ -426,33 +410,7 @@ bindsym $mod+BackSpace exec ~/.config/i3/scripts/breakTimer/breakTimer_killer.sh
 exec_always --no-startup-id exec ~/.config/i3/scripts/battery_reminder.sh
 
 # gnome daemon
-exec_always --no-startup-id gnome-settings-daemon
-
-###########################################
-## COMPOSITOR                            ##
-###########################################
-
-# add compositor
-
-set $kill_picom killall picom;
-set $normal_opacity picom --inactive-opacity 0.9 --active-opacity 1.0;
-exec_always --no-startup-id "$kill_picom $normal_opacity" 
-
-# picom modes
-set $mode_picom picom (f)ull_opacity, (n)ormal_opacity, (a)ctive_opacity (s)uper_opacity
-
-bindsym $mod+F2 mode "$mode_picom"
-mode "$mode_picom" {
-
-    bindsym f exec --no-startup-id "$kill_picom picom --inactive-opacity 1.0 --active-opacity 1.0", mode "default"
-    bindsym n exec --no-startup-id "$kill_picom picom --inactive-opacity 0.9 --active-opacity 1.0", mode "default"
-    bindsym a exec --no-startup-id "$kill_picom picom --inactive-opacity 0.9 --active-opacity 0.9", mode "default"
-    bindsym s exec --no-startup-id "$kill_picom picom --inactive-opacity 0.8 --active-opacity 0.9", mode "default"
- 
-    bindsym Return mode "default"
-    bindsym $mod+F2 mode "default"
-    bindsym Escape mode "default"
-}
+# exec_always --no-startup-id gnome-settings-daemon
 
 ###########################################
 ## BINDINGS FOR PRORGAMS                 ##
@@ -506,6 +464,19 @@ bindsym $alt+p exec pavucontrol
 
 #email client
 bindsym $alt+e exec thunderbird
+
+###########################################
+## RELOAD CONFIG                         ##
+###########################################
+
+set $kill_commands ~/.config/i3/scripts/killer.sh; 
+
+# reload the configuration file and kill all background scripts
+bindsym $mod+Shift+c exec $kill_commands reload; 
+# restart i3 inplace and kill all background scripts
+bindsym $mod+Shift+r exec $kill_commands restart; 
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "$kill_commands i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 ###########################################
 ## SHUTDOWN & REBOOT                     ##
