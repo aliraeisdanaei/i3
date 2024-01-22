@@ -17,6 +17,25 @@ font pango:monospace 10
 #font pango:DejaVu Sans Mono 10
 
 ###########################################
+## STATUS BAR                            ##
+###########################################
+#link the config file to the defult location laucnh.sh will read from
+#set $theme tinyc
+#exec ln -f -t ~/.config/polybar ~/.config/polybar/polybar-themes/$theme/*
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
+bar{
+        status_command i3status
+        font pango:Inconsolata 14
+        position left
+        separator_symbol |
+}
+
+###########################################
+## APPLETS & WIDGETS                     ##
+###########################################
+exec_always --no-startup-id ~/.config/i3/scripts/tray.sh
+
+###########################################
 ## BORDERS                               ##
 ###########################################
 for_window [class="^.*"] border pixel 5
@@ -362,26 +381,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
-
-###########################################
-## STATUS BAR                            ##
-###########################################
-#link the config file to the defult location laucnh.sh will read from
-#set $theme tinyc
-#exec ln -f -t ~/.config/polybar ~/.config/polybar/polybar-themes/$theme/*
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
-bar{
-        status_command i3status
-        font pango:Inconsolata 14
-        position left
-        separator_symbol |
-}
-
-###########################################
-## APPLETS & WIDGETS                     ##
-###########################################
-exec_always --no-startup-id ~/.config/i3/scripts/tray.sh
-
 ###########################################
 ## BINDINGS FOR PRORGAMS                 ##
 ###########################################
