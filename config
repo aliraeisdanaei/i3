@@ -387,7 +387,7 @@ bindsym $mod+r mode "resize"
 
 set $terminal gnome-terminal
 set $terminal_flag --hide-menubar
-set $fileManager nautilus
+set $fileManager nemo
 set $browser brave
 
 # start a terminal
