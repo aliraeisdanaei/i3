@@ -437,7 +437,6 @@ bindsym $alt+e exec thunderbird
 ###########################################
 ## BACKGROUND & THINGS TO RUN ON STARTUP ##
 ###########################################
-
 # enables dark mode with gnome
 # exec_always --no-startup-id /usr/lib/gsd-xsettings
 
@@ -465,7 +464,6 @@ exec_always --no-startup-id gnome-settings-daemon
 ###########################################
 ## RELOAD CONFIG                         ##
 ###########################################
-
 set $kill_commands ~/.config/i3/scripts/killer.sh; 
 
 # reload the configuration file and kill all background scripts
@@ -478,6 +476,5 @@ bindsym $mod+Shift+e exec "$kill_commands i3-nagbar -t warning -m 'You pressed t
 ###########################################
 ## SHUTDOWN & REBOOT                     ##
 ###########################################
-
 bindsym $alt+$mod+r exec reboot
 bindsym $alt+$mod+s exec shutdown now
