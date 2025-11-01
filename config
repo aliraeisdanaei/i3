@@ -223,8 +223,9 @@ bindsym $mod+d exec i3-dmenu-desktop
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+g exec gdmenu_run
-bindsym $mod+shift+g exec i3-dmenu-desktop
-bindsym $alt+space exec krunner
+# bindsym $mod+shift+g exec i3-dmenu-desktop
+# bindsym $alt+space exec krunner
+bindsym $alt+space exec rofi -show drun
 
 ###########################################
 ## FOCUS & SPLITTING                     ##
@@ -388,8 +389,8 @@ bindsym $mod+r mode "resize"
 
 set $terminal gnome-terminal
 set $terminal_flag --hide-menubar
-set $fileManager nemo
-set $browser brave
+set $fileManager nautilus
+set $browser chromium
 
 # start a terminal
 bindsym $mod+Return exec $terminal $terminal_flag

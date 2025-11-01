@@ -2,8 +2,7 @@
 .sensible_on
 
 scripts/.20Timer
-scripts/.brightness_*
-scripts/.20Timer
-scripts/.20Timer
 scripts/.brightness_1
+scripts/.brightness_2
+scripts/.brightness_set
 .20Timer
